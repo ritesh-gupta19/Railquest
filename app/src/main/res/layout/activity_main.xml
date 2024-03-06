@@ -6,4 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.784" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="OpenSignUp"
+        android:text="Sign Up"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="313dp"
+        android:layout_height="292dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.291"
+        app:srcCompat="@drawable/train" />
 </androidx.constraintlayout.widget.ConstraintLayout>
