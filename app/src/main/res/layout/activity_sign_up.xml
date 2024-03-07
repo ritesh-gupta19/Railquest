@@ -235,6 +235,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:onClick="onClickSubmit"
                 android:text="Register"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
