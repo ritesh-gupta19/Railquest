@@ -2,6 +2,7 @@ package com.example.railquest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -69,5 +70,7 @@ public class SignIn extends AppCompatActivity {
 
     public void onClickSubmit(View v) {
         // Implement the submit logic here...
+        Intent intent = new Intent(this, firstEntryPage.class);
+        startActivity(intent);
     }
 }
