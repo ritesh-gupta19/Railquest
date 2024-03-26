@@ -52,25 +52,48 @@ public class SignIn extends AppCompatActivity {
         });
     }
 
-    private void validateUserID() {
+    private boolean validateUserID() {
         String userID = userIdEditText.getText().toString();
         if (userID.length() == 0) {
             userIdEditText.setError("Enter User ID");
+            return false;
         }
+        return true;
     }
 
-    private void validatePassword() {
+    private boolean validatePassword() {
         String password = passwordEditText.getText().toString();
         Pattern pattern_password = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
         Matcher matcher_password = pattern_password.matcher(password);
         if (!matcher_password.matches()) {
             passwordEditText.setError("The password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one digit, and one special character");
+            return false;
         }
+        return true;
     }
 
     public void onClickSubmit(View v) {
-        // Implement the submit logic here...
-        Intent intent = new Intent(this, firstEntryPage.class);
-        startActivity(intent);
+        // Validate all fields
+        boolean isValid = true;
+
+        if(!validateUserID()) {
+            isValid = false;
+        }
+
+        if (!validatePassword()) {
+            isValid = false;
+        }
+
+        if (isValid) {
+            // Switch to next page
+            Intent intent = new Intent(this, firstEntryPage.class); // Replace NextActivity with the name of your next activity
+            startActivity(intent);
+        } else {
+            // Highlight incorrect fields
+            userIdEditText.requestFocus();
+            passwordEditText.requestFocus();
+            // Show error message or Toast indicating validation errors
+            Toast.makeText(this, "Please fill all compulsory fields correctly", Toast.LENGTH_SHORT).show();
+        }
     }
 }

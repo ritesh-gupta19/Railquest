@@ -2,6 +2,7 @@ package com.example.railquest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +34,8 @@ public class firstEntryPage extends AppCompatActivity {
 
     public void onClickTrainDetails(View v) {
         //functionality for get train details button....
+        Intent intent = new Intent(this, search_page.class); // Replace NextActivity with the name of your next activity
+        startActivity(intent);
     }
 
     public void onClickYourBookings(View v) {
