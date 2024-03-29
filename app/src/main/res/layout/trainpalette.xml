@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="7dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="7dp"
+    android:padding="15dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="15dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/txtTrainName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kyq Gtnr Express"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtTrainNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#15077"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtStartTimeDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="10dp"
+            android:text="8:00 PM, 30 Apr"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTrainName" />
+
+        <TextView
+            android:id="@+id/txtEndTimeDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="7dp"
+            android:text="9:13 PM, 1 May"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTrainNumber" />
+
+        <TextView
+            android:id="@+id/txtTimeDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="25h 13m"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtEndTimeDate"
+            app:layout_constraintEnd_toStartOf="@+id/txtEndTimeDate"
+            app:layout_constraintStart_toEndOf="@+id/txtStartTimeDate"
+            app:layout_constraintTop_toTopOf="@+id/txtStartTimeDate" />
+
+        <TextView
+            android:id="@+id/txtBoardingStationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Kamakhya (KYQ)"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/txtStartTimeDate"
+            app:layout_constraintTop_toBottomOf="@+id/txtStartTimeDate" />
+
+        <TextView
+            android:id="@+id/txtDestinationStationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Basti (BST)"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtEndTimeDate"
+            app:layout_constraintTop_toBottomOf="@+id/txtEndTimeDate" />
+
+        <HorizontalScrollView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/txtDestinationStationName"
+            app:layout_constraintStart_toStartOf="@+id/txtBoardingStationName"
+            app:layout_constraintTop_toBottomOf="@+id/txtBoardingStationName">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
+        </HorizontalScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

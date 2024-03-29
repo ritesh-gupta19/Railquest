@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="170dp"
+    android:layout_height="100dp"
+    android:padding="15dp"
+    android:layout_marginLeft="7dp"
+    app:cardCornerRadius="10dp"
+
+    android:layout_marginTop="10dp"
+    app:cardElevation="15dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp">
+
+
+        <TextView
+            android:id="@+id/txtSeatClass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3A"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtSeatPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R 1400"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtSeatsAvailale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+
+            android:text="Available 63"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/txtSeatClass"
+            app:layout_constraintTop_toBottomOf="@+id/txtSeatClass" />
+
+        <TextView
+            android:id="@+id/txtUpdatedTiming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Updated few mins ago"
+            android:textColor="#9D8DAA"
+            app:layout_constraintStart_toStartOf="@+id/txtSeatsAvailale"
+            app:layout_constraintTop_toBottomOf="@+id/txtSeatsAvailale"
+            android:textSize="12sp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
