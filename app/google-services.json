@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "2465701664",
+    "project_id": "railquest-c25ea",
+    "storage_bucket": "railquest-c25ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2465701664:android:19da9f8a89e1a5b78f0145",
+        "android_client_info": {
+          "package_name": "com.example.railquest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV9INEf9O0jzpUSm91dfUpVYATG4PRc0I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -52,24 +52,35 @@ public class SignIn extends AppCompatActivity {
         });
     }
 
-    private void validateUserID() {
+    private int validateUserID() {
         String userID = userIdEditText.getText().toString();
         if (userID.length() == 0) {
             userIdEditText.setError("Enter User ID");
+            return 0;
         }
+        return 1;
     }
 
-    private void validatePassword() {
+    private int validatePassword() {
         String password = passwordEditText.getText().toString();
         Pattern pattern_password = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
         Matcher matcher_password = pattern_password.matcher(password);
         if (!matcher_password.matches()) {
             passwordEditText.setError("The password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one digit, and one special character");
+            return 0;
         }
+        return 1;
     }
 
     public void onClickSubmit(View v) {
-        // Implement the submit logic here...
+        // Logic to verify User
+        if (validateUserID() == 1 || validatePassword() == 1) return;
+
+        String username = userIdEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+        if (DBHandler.verifyUserCredentials(username, password, this) != 1) return;
+
+        // Start next activity
         Intent intent = new Intent(this, firstEntryPage.class);
         startActivity(intent);
     }

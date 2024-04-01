@@ -50,6 +50,8 @@ public class SignUp extends AppCompatActivity {
         button = findViewById(R.id.button3);
 
         setFieldListeners();
+
+        button.setOnClickListener(view -> DBHandler.addUser(SignUp.this));
     }
 
     private void setFieldListeners() {
@@ -174,5 +176,9 @@ public class SignUp extends AppCompatActivity {
         // Redirect to Sign In page
         Intent intent = new Intent(this, SignIn.class);
         startActivity(intent);
+    }
+
+    public void closeActivity() {
+        finish();
     }
 }
