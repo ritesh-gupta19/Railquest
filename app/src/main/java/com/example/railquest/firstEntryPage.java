@@ -39,6 +39,10 @@ public class firstEntryPage extends AppCompatActivity {
     }
 
     public void onClickYourBookings(View v) {
+        // temporary functionality for dummy trains view
+        Intent intent = new Intent(this, ActivityListTrain.class);
+        startActivity(intent);
+
         //functionality for your bookings button....
     }
 
