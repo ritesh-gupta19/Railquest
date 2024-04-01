@@ -104,6 +104,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtBoardingStationName">
 
             <LinearLayout
+                android:id="@+id/llTrainClasses"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"></LinearLayout>
