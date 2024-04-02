@@ -14,12 +14,13 @@ import java.util.List;
 
 public class TrainPaletteCustomAdapter extends RecyclerView.Adapter<TrainPaletteCustomAdapter.ViewHolder> {
 
-    private List<TrainPaletteItem> trainPaletteItems;
+    private List<TrainDetails> trainDetailsItems;
     private Context context;
 
-    public TrainPaletteCustomAdapter(Context context, List<TrainPaletteItem> trainPaletteItems) {
+    public TrainPaletteCustomAdapter(Context context, List<TrainDetails> TrainDetailsItem) {
         this.context = context;
-        this.trainPaletteItems = trainPaletteItems;
+        this.trainDetailsItems = TrainDetailsItem;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -31,7 +32,7 @@ public class TrainPaletteCustomAdapter extends RecyclerView.Adapter<TrainPalette
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        TrainPaletteItem item = trainPaletteItems.get(position);
+        TrainDetails item = trainDetailsItems.get(position);
 
         // Bind data to views in trainPalette.xml
         holder.txtTrainName.setText(item.getTrainName());
@@ -72,7 +73,7 @@ public class TrainPaletteCustomAdapter extends RecyclerView.Adapter<TrainPalette
 
     @Override
     public int getItemCount() {
-        return trainPaletteItems.size();
+        return trainDetailsItems.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

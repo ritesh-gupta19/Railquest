@@ -9,8 +9,9 @@ public class TrainDetails {
     private String TimeDuration;
     private String BoardingStationName;
     private String DestinationStationName;
+    private TrainClassPaletteItem[] trainClasses;
 
-    public TrainDetails(String trainName, String trainNumber, String startTimeDate, String endTimeDate, String timeDuration, String boardingStationName, String destinationStationName) {
+    public TrainDetails(String trainName, String trainNumber, String startTimeDate, String endTimeDate, String timeDuration, String boardingStationName, String destinationStationName, TrainClassPaletteItem[] trainClasses) {
         TrainName = trainName;
         TrainNumber = trainNumber;
         StartTimeDate = startTimeDate;
@@ -18,6 +19,7 @@ public class TrainDetails {
         TimeDuration = timeDuration;
         BoardingStationName = boardingStationName;
         DestinationStationName = destinationStationName;
+        this.trainClasses = trainClasses;
     }
 
     public String getTrainName() {
@@ -74,6 +76,14 @@ public class TrainDetails {
 
     public void setDestinationStationName(String destinationStationName) {
         DestinationStationName = destinationStationName;
+    }
+
+    public TrainClassPaletteItem[] getTrainClasses() {
+        return trainClasses;
+    }
+
+    public void setTrainClasses(TrainClassPaletteItem[] trainClasses) {
+        this.trainClasses = trainClasses;
     }
 
     @Override

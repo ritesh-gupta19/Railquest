@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="15dp"
-        android:text="edit this part"
+        android:text="Fetched Trains"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerViewTrainList"
         app:layout_constraintEnd_toEndOf="parent"
