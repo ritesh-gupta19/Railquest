@@ -1,6 +1,8 @@
 package com.example.railquest;
 
-public class TrainClassPaletteItem {
+import java.io.Serializable;
+
+public class TrainClassPaletteItem implements Serializable {
     private String seatClass;
     private String seatPrice;
     private String seatsAvailable;

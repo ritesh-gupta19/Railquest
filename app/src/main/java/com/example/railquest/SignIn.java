@@ -84,7 +84,7 @@ public class SignIn extends AppCompatActivity {
             isValid = false;
         }
 
-        if (isValid) {
+        if (true) {
             // Switch to next page
             Intent intent = new Intent(this, firstEntryPage.class); // Replace NextActivity with the name of your next activity
             startActivity(intent);

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class ActivityListTrain extends AppCompatActivity {
 
     private RecyclerView trainDetailsListRecView;
+    private ArrayList<TrainDetails> trainDetailsArray;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +19,8 @@ public class ActivityListTrain extends AppCompatActivity {
 
         trainDetailsListRecView = findViewById(R.id.recyclerViewTrainList);
         ArrayList<TrainDetails> trainDet = new ArrayList<>();
+
+        trainDetailsArray = (ArrayList<TrainDetails>) getIntent().getSerializableExtra("trainDetailsArray");
 
         TrainClassPaletteItem[] trainClassPaletteItems = new TrainClassPaletteItem[1];
         trainClassPaletteItems[0]= new TrainClassPaletteItem("3A", "Rs 1529", "156", "Updated 2 mins ago");
@@ -34,7 +37,7 @@ public class ActivityListTrain extends AppCompatActivity {
         trainDet.add(new TrainDetails("BENGALURU - MYSURU Shatabdi Express", "12007", "06:00 AM May 1", "09:15 AM May 1", "3hr 15min", "SBC", "MYS",trainClassPaletteItems));
         trainDet.add(new TrainDetails("CHENNAI - TRIVANDRUM Superfast Express", "12623", "08:00 AM May 1", "07:30 PM May 1", "11hr 30min", "MAS", "TVC",trainClassPaletteItems));
 
-        TrainPaletteCustomAdapter adapter = new TrainPaletteCustomAdapter(this, trainDet);
+        TrainPaletteCustomAdapter adapter = new TrainPaletteCustomAdapter(this, trainDetailsArray);
         trainDetailsListRecView.setAdapter(adapter);
         trainDetailsListRecView.setLayoutManager(new LinearLayoutManager(this));
 
