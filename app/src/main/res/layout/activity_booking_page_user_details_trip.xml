@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/txtTravelDetailsPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:text="Travel Details"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card1"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTravelDetailsPage">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/txtBookingTrainName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="Kyq Gtnr Express"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtBookingTrainNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="13dp"
+                    android:text="15077"
+                    android:textColor="#534A4A"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtBookingTrainName"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtBookingTier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="3 Tier AC"
+                    app:layout_constraintStart_toStartOf="@+id/txtBookingTrainName"
+                    app:layout_constraintTop_toBottomOf="@+id/txtBookingTrainName" />
+
+                <TextView
+                    android:id="@+id/txtBookingSeatsRemaining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Available 44"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtBookingTier"
+                    app:layout_constraintEnd_toEndOf="@+id/txtBookingTrainNumber"
+                    app:layout_constraintTop_toBottomOf="@+id/txtBookingTrainNumber" />
+
+                <TextView
+                    android:id="@+id/txtBookingQuota"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="General Quota"
+                    app:layout_constraintStart_toStartOf="@+id/txtBookingTier"
+                    app:layout_constraintTop_toBottomOf="@+id/txtBookingTier" />
+
+                <TextView
+                    android:id="@+id/txtBookingStartTimeDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="8:00 PM, 30 Apr"
+                    app:layout_constraintStart_toStartOf="@+id/txtBookingQuota"
+                    app:layout_constraintTop_toBottomOf="@+id/txtBookingQuota" />
+
+                <TextView
+                    android:id="@+id/txtBookingDestinationTimeDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9:13 PM, 1 May"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtBookingTravelDuration"
+                    app:layout_constraintEnd_toEndOf="@+id/txtBookingSeatsRemaining"
+                    app:layout_constraintTop_toTopOf="@+id/txtBookingTravelDuration" />
+
+                <TextView
+                    android:id="@+id/txtBookingTravelDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25h 13m"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtBookingStartTimeDate"
+                    app:layout_constraintEnd_toStartOf="@+id/txtBookingDestinationTimeDate"
+                    app:layout_constraintStart_toEndOf="@+id/txtBookingStartTimeDate"
+                    app:layout_constraintTop_toTopOf="@+id/txtBookingStartTimeDate" />
+
+                <TextView
+                    android:id="@+id/txtBookingStartStation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Kamakhya (KYQ)"
+                    app:layout_constraintStart_toStartOf="@+id/txtBookingStartTimeDate"
+                    app:layout_constraintTop_toBottomOf="@+id/txtBookingStartTimeDate" />
+
+                <TextView
+                    android:id="@+id/txtBookingDestinationStation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Basti (BST)"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtBookingStartStation"
+                    app:layout_constraintEnd_toEndOf="@+id/txtBookingDestinationTimeDate"
+                    app:layout_constraintTop_toTopOf="@+id/txtBookingStartStation" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card2"
+            android:layout_width="409dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btnAddNewTraveller"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:text="Add new Traveller"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recViewTravellerList"
+                    app:layout_constraintVertical_bias="0.5" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recViewTravellerList"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="7dp"
+                    app:layout_constraintBottom_toTopOf="@id/btnAddNewTraveller"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTravellerDetails"
+                    app:layout_constraintVertical_bias="0.523" />
+
+                <TextView
+                    android:id="@+id/txtTravellerDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Traveller Details"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/recViewTravellerList"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.061"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card3"
+            android:layout_width="409dp"
+            android:layout_height="210dp"
+
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card2">
+
+            <TextView
+                android:id="@+id/txtContactDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="12dp"
+                android:text="Contact Details"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtEmailID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="12dp"
+                android:text="Email ID"
+                app:layout_constraintTop_toBottomOf="@+id/txtContactDetails" />
+
+            <EditText
+                android:id="@+id/edtTxtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="75dp"
+                android:layout_marginEnd="12dp"
+                android:ems="10"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/txtPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="130dp"
+                android:layout_marginEnd="12dp"
+                android:text="Phone Number" />
+
+            <EditText
+                android:id="@+id/edtTxtPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="153dp"
+                android:layout_marginEnd="12dp"
+                android:ems="10"
+                android:inputType="phone" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card4"
+            android:layout_width="409dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+
+
+            app:layout_constraintStart_toStartOf="@+id/card3"
+            app:layout_constraintTop_toBottomOf="@+id/card3">
+
+            <TextView
+                android:id="@+id/agreement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+
+                android:fontFamily="sans-serif-medium"
+
+                android:text="By proceeding, I agree that the details provided are accurate to the best of my knowledge and I agree to Terms and Services"
+                android:textStyle="italic" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card5"
+            android:layout_width="409dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card4">
+
+
+            <Button
+                android:id="@+id/btnProceedToPayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="30dp"
+                android:text="PROCEED TO PAYMENT"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
