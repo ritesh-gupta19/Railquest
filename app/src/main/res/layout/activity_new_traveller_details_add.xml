@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtAddTravellerDetailsPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="Add Traveller Details"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtPassengerName"
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtTxtPassengerName"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:ems="10"
+        android:hint="Enter Full Name"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/txtPassengerName"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassengerName" />
+
+    <TextView
+        android:id="@+id/txtPassengerAge"
+        android:layout_width="31dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="15dp"
+        android:text="Age"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/txtPassengerName"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtPassengerName" />
+
+    <EditText
+        android:id="@+id/edtTxtPassengerAge"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:hint="Enter Age"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/txtPassengerAge"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassengerAge" />
+
+    <TextView
+        android:id="@+id/txtPassengerGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Gender"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/txtPassengerAge"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtPassengerAge" />
+
+    <RadioGroup
+        android:id="@+id/rgPassengerGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:checkedButton="@id/rbMale"
+        android:orientation="horizontal"
+
+        app:layout_constraintStart_toStartOf="@+id/txtPassengerGender"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassengerGender">
+
+        <RadioButton
+            android:id="@+id/rbMale"
+            android:layout_width="87dp"
+            android:layout_height="wrap_content"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/rbFemale"
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:text="Female" />
+
+        <RadioButton
+            android:id="@+id/rbOthers"
+            android:layout_width="101dp"
+            android:layout_height="wrap_content"
+            android:text="Others" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/txtPassengerBerthPreference"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginTop="15dp"
+        android:text="Berth Preference"
+        app:layout_constraintStart_toStartOf="@+id/rgPassengerGender"
+        app:layout_constraintTop_toBottomOf="@+id/rgPassengerGender" />
+
+    <Spinner
+        android:id="@+id/spinnerBerthPreference"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="10dp"
+        android:entries="@array/berthPreference"
+        app:layout_constraintStart_toStartOf="@+id/txtPassengerBerthPreference"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassengerBerthPreference" />
+
+    <TextView
+        android:id="@+id/txtPassengerNationality"
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Nationality"
+        app:layout_constraintStart_toStartOf="@+id/txtPassengerBerthPreference"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerBerthPreference" />
+
+    <Spinner
+        android:id="@+id/spinnerNationality"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="10dp"
+        android:entries="@array/nationality"
+        app:layout_constraintStart_toStartOf="@+id/txtPassengerNationality"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassengerNationality" />
+
+    <Button
+        android:id="@+id/btnSavePassengerDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="30dp"
+        android:text="Save"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerNationality"
+        app:layout_constraintStart_toStartOf="@+id/spinnerNationality" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

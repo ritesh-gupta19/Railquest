@@ -6,4 +6,24 @@
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="first_name">First Name</string>
+
+    <array name="berthPreference">
+        <item>Lower</item>
+        <item>Middle</item>
+        <item>Upper</item>
+        <item>Side Lower</item>
+        <item>Side Upper</item>
+        <item>No berth preference</item>
+    </array>
+
+    <array name="nationality">
+        <item>India</item>
+        <item>Pakistan</item>
+        <item>Sri Lanka</item>
+        <item>Nepal</item>
+        <item>Bangladesh</item>
+        <item>Afganistan</item>
+        <item>Other</item>
+    </array>
+
 </resources>

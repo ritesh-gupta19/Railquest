@@ -52,5 +52,9 @@ public class firstEntryPage extends AppCompatActivity {
 
     public void onClickCancelTickets(View v) {
         //functionality for cancel tickets button....
+//        public void openNewTraveller(View v) {
+            Intent intent = new Intent(this, Booking_Page_User_Details_Trip.class);
+            startActivity(intent);
+//        }
     }
 }

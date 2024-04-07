@@ -19,14 +19,15 @@ public class ActivityListTrain extends AppCompatActivity {
 
         trainDetailsListRecView = findViewById(R.id.recyclerViewTrainList);
         ArrayList<TrainDetails> trainDet = new ArrayList<>();
-
         trainDetailsArray = (ArrayList<TrainDetails>) getIntent().getSerializableExtra("trainDetailsArray");
 
-        TrainClassPaletteItem[] trainClassPaletteItems = new TrainClassPaletteItem[1];
-        trainClassPaletteItems[0]= new TrainClassPaletteItem("3A", "Rs 1529", "156", "Updated 2 mins ago");
+        TrainClassPaletteItem[] trainClassPaletteItems = new TrainClassPaletteItem[4];
+        trainClassPaletteItems[0]= new TrainClassPaletteItem("3A", "Rs 3529", "109", "Updated 2 mins ago");
+        trainClassPaletteItems[1]= new TrainClassPaletteItem("2A", "Rs 2425", "56", "Updated 2 mins ago");
+        trainClassPaletteItems[2]= new TrainClassPaletteItem("1A", "Rs 1329", "84", "Updated 2 mins ago");
+        trainClassPaletteItems[3]= new TrainClassPaletteItem("SL", "Rs 649", "14", "Updated 2 mins ago");
 
 
-        trainDet.add(new TrainDetails("MUMBAI CSMT - HAZRAT NIZAMUDDIN Rajdhani Express", "22221", "07:05 AM May 1", "08:10 PM May 1", "13hr 05min", "CSMT", "NZM",trainClassPaletteItems));
         trainDet.add(new TrainDetails("DELHI - KOLKATA Rajdhani Express", "12301", "05:00 PM May 1", "07:30 AM May 2", "14hr 30min", "NDLS", "HWH",trainClassPaletteItems));
         trainDet.add(new TrainDetails("BENGALURU - CHENNAI Shatabdi Express", "12007", "06:00 AM May 1", "09:15 AM May 1", "3hr 15min", "SBC", "MAS",trainClassPaletteItems));
         trainDet.add(new TrainDetails("AHMEDABAD - MUMBAI Duronto Express", "12268", "10:30 PM April 30", "06:00 AM May 1", "7hr 30min", "ADI", "CSMT",trainClassPaletteItems));
