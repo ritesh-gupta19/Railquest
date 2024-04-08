@@ -27,7 +27,7 @@ public class ActivityListTrain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_train);
 
-        trainDetailsListRecView = findViewById(R.id.recyclerViewTrainList);
+        trainDetailsListRecView = findViewById(R.id.recyclerViewBookingsList);
         trainDet = new ArrayList<>();
         trainDetailsArray = (ArrayList<TrainDetails>) getIntent().getSerializableExtra("trainDetailsArray");
 
