@@ -14,12 +14,12 @@
             android:id="@+id/txtTravelDetailsPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
-            android:text="Travel Details"
+            android:text="TICKET DETAILS"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,8 +27,11 @@
             android:id="@+id/card1"
             android:layout_width="409dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="5dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtTravelDetailsPage">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -69,40 +72,23 @@
                     app:layout_constraintTop_toBottomOf="@+id/txtBookedTrainName" />
 
                 <TextView
-                    android:id="@+id/txtBookingSeatsRemaining"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Available 44"
-                    app:layout_constraintBottom_toBottomOf="@+id/txtBookedTier"
-                    app:layout_constraintEnd_toEndOf="@+id/txtBookedTrainNumber"
-                    app:layout_constraintTop_toBottomOf="@+id/txtBookedTrainNumber" />
-
-                <TextView
-                    android:id="@+id/txtBookingQuota"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="General Quota"
-                    app:layout_constraintStart_toStartOf="@+id/txtBookedTier"
-                    app:layout_constraintTop_toBottomOf="@+id/txtBookedTier" />
-
-                <TextView
                     android:id="@+id/txtBookedStartTimeDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginTop="10dp"
                     android:text="8:00 PM, 30 Apr"
-                    app:layout_constraintStart_toStartOf="@+id/txtBookingQuota"
-                    app:layout_constraintTop_toBottomOf="@+id/txtBookingQuota" />
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/txtBookedTier"
+                    app:layout_constraintTop_toBottomOf="@+id/txtBookedTier" />
 
                 <TextView
                     android:id="@+id/txtBookedDestinationTimeDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="9:13 PM, 1 May"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/txtBookedTravelDuration"
-                    app:layout_constraintEnd_toEndOf="@+id/txtBookingSeatsRemaining"
+                    app:layout_constraintEnd_toEndOf="@+id/txtBookedPNRNumber"
                     app:layout_constraintTop_toTopOf="@+id/txtBookedTravelDuration" />
 
                 <TextView
@@ -133,6 +119,28 @@
                     app:layout_constraintEnd_toEndOf="@+id/txtBookedDestinationTimeDate"
                     app:layout_constraintTop_toTopOf="@+id/txtBookedStartStation" />
 
+                <TextView
+                    android:id="@+id/txtBookedPNRNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6434199000"
+                    android:textColor="#C33131"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtBookedTier"
+                    app:layout_constraintEnd_toEndOf="@+id/txtBookedTrainNumber"
+                    app:layout_constraintTop_toTopOf="@+id/txtBookedTier" />
+
+                <TextView
+                    android:id="@+id/txtBookedPNR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="3dp"
+                    android:text="PNR: "
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtBookedPNRNumber"
+                    app:layout_constraintEnd_toStartOf="@+id/txtBookedPNRNumber"
+                    app:layout_constraintTop_toTopOf="@+id/txtBookedPNRNumber" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
@@ -141,9 +149,9 @@
             android:id="@+id/card2"
             android:layout_width="409dp"
             android:layout_height="200dp"
-            android:layout_marginStart="1dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="1dp"
+            android:layout_marginEnd="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card1">
@@ -151,19 +159,6 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-                <Button
-                    android:id="@+id/btnAddNewTraveller"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:text="Add new Traveller"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recViewTravellerList"
-                    app:layout_constraintVertical_bias="0.5" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recViewTravellerList"
@@ -173,7 +168,7 @@
                     android:layout_marginTop="7dp"
                     android:layout_marginEnd="12dp"
                     android:layout_marginBottom="7dp"
-                    app:layout_constraintBottom_toTopOf="@id/btnAddNewTraveller"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -184,7 +179,7 @@
                     android:id="@+id/txtBookedTravellerDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Traveller Details"
+                    android:text="Traveller Information"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold"
@@ -199,118 +194,111 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/card3"
-            android:layout_width="409dp"
-            android:layout_height="210dp"
-
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="1dp"
+            android:id="@+id/cardPaid"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card2">
 
-            <TextView
-                android:id="@+id/txtContactDetails"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="12dp"
-                android:text="Contact Details"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txtEmailID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="12dp"
-                android:text="Email ID"
-                app:layout_constraintTop_toBottomOf="@+id/txtContactDetails" />
-
-            <EditText
-                android:id="@+id/edtTxtEmail"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="75dp"
-                android:layout_marginEnd="12dp"
-                android:ems="10"
-                android:inputType="textEmailAddress" />
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/txtPhoneNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="130dp"
-                android:layout_marginEnd="12dp"
-                android:text="Phone Number" />
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="Payment Details"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/edtTxtPhoneNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="153dp"
-                android:layout_marginEnd="12dp"
-                android:ems="10"
-                android:inputType="phone" />
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Base Fare"
+                    app:layout_constraintStart_toStartOf="@+id/textView3"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
+                <TextView
+                    android:id="@+id/txtBookedBaseFair"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:text="Rs 3200"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView4" />
 
-        </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Convenience Fee and Taxes"
+                    app:layout_constraintStart_toStartOf="@+id/textView4"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card4"
-            android:layout_width="409dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
+                <TextView
+                    android:id="@+id/txtBookedAdditionalFare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rs 25"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                    app:layout_constraintEnd_toEndOf="@+id/txtBookedBaseFair"
+                    app:layout_constraintTop_toTopOf="@+id/textView6" />
 
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Total Fare"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/textView6"
+                    app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-            app:layout_constraintStart_toStartOf="@+id/card3"
-            app:layout_constraintTop_toBottomOf="@+id/card3">
+                <TextView
+                    android:id="@+id/txtBookedTotalFair"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rs 3225"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView8"
+                    app:layout_constraintEnd_toEndOf="@+id/txtBookedAdditionalFare"
+                    app:layout_constraintTop_toTopOf="@+id/textView8" />
 
-            <TextView
-                android:id="@+id/agreement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="12dp"
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Booked From"
+                    app:layout_constraintStart_toStartOf="@+id/textView8"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-                android:fontFamily="sans-serif-medium"
-
-                android:text="By proceeding, I agree that the details provided are accurate to the best of my knowledge and I agree to Terms and Services"
-                android:textStyle="italic" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card5"
-            android:layout_width="409dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card4">
-
-
-            <Button
-                android:id="@+id/btnProceedToPayment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="30dp"
-                android:text="PROCEED TO PAYMENT"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Railquest App"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView10"
+                    app:layout_constraintEnd_toEndOf="@+id/txtBookedTotalFair"
+                    app:layout_constraintTop_toTopOf="@+id/textView10" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

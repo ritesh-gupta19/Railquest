@@ -17,6 +17,12 @@
         <activity
             android:name=".PaymentActivity"
             android:exported="false" />
+	<activity	
+	    android:name=".ListBookings"
+            android:exported="false" />
+        <activity
+            android:name=".Booked_Details_Complete"
+            android:exported="false" />
         <activity
             android:name=".Booking_Page_User_Details_Trip"
             android:exported="false" />

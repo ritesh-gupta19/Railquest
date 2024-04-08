@@ -48,8 +48,8 @@ public class TravellerListCustomAdapter extends RecyclerView.Adapter<TravellerLi
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtTravellerName = itemView.findViewById(R.id.txtTravellerName);
-            txtBerthName = itemView.findViewById(R.id.txtBerthName);
+            txtTravellerName = itemView.findViewById(R.id.txtBookingTravellerNameAgeGender);
+            txtBerthName = itemView.findViewById(R.id.txtBookingBerth);
             parentCardView = itemView.findViewById(R.id.parent);
         }
     }

@@ -23,7 +23,7 @@
         android:paddingBottom="10dp">
 
         <TextView
-            android:id="@+id/txtTravellerName"
+            android:id="@+id/txtBookingTravellerNameAgeGender"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -31,7 +31,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="1dp"
             android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/txtBerthName"
+            app:layout_constraintBottom_toTopOf="@+id/txtBookingBerth"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
             app:layout_constraintVertical_bias="0.5" />
 
         <TextView
-            android:id="@+id/txtBerthName"
+            android:id="@+id/txtBookingBerth"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -52,7 +52,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTravellerName"
+            app:layout_constraintTop_toBottomOf="@+id/txtBookingTravellerNameAgeGender"
             app:layout_constraintVertical_bias="0.5" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
