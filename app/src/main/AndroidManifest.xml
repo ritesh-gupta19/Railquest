@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Railquest"
         tools:targetApi="31">
         <activity
+            android:name=".PNR_status_display"
+            android:exported="false" />
+        <activity
+            android:name=".passenger_details"
+            android:exported="false" />
+        <activity
+            android:name=".book_train"
+            android:exported="false" />
+        <activity
+            android:name=".PNR_status"
+            android:exported="false" />
+        <activity
             android:name=".search_page"
             android:exported="false" />
         <activity

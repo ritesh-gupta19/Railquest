@@ -30,6 +30,8 @@ public class firstEntryPage extends AppCompatActivity {
 
     public void onClickBookTickets(View v) {
         //functionality for book tickets button....
+        Intent intent = new Intent(this, book_train.class); // Replace NextActivity with the name of your next activity
+        startActivity(intent);
     }
 
     public void onClickTrainDetails(View v) {
@@ -44,6 +46,8 @@ public class firstEntryPage extends AppCompatActivity {
 
     public void onClickPNRStatus(View v) {
         //functionality for check PNR status button....
+        Intent intent = new Intent(this, PNR_status.class); // Replace NextActivity with the name of your next activity
+        startActivity(intent);
     }
 
     public void onClickCancelTickets(View v) {

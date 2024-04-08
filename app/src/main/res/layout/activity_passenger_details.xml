@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".passenger_details">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBookTrain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutPassengerDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Passenger details fields -->
+            <TextView
+                android:id="@+id/textViewPassengerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Passenger 1"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/editTextPassengerName"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/editTextPassengerName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPassengerTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"/>
+
+            <EditText
+                android:id="@+id/editTextPassengerAge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Age"
+                android:inputType="number"
+                app:layout_constraintTop_toBottomOf="@+id/editTextPassengerName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerPassengerGender"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:prompt="@string/select_gender"
+                app:layout_constraintTop_toBottomOf="@+id/editTextPassengerAge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"/>
+
+            <!-- Add Passenger button -->
+            <Button
+                android:id="@+id/buttonAddPassenger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Passenger"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerPassengerGender"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- Book Train button -->
+    <Button
+        android:id="@+id/buttonBookTrain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book Train"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
