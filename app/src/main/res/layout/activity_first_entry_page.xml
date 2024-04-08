@@ -45,9 +45,9 @@
         app:cardCornerRadius="8dp"
         app:layout_constraintBottom_toTopOf="@+id/getTrainDetailsCard"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerLayout"
-        app:layout_constraintHorizontal_bias="0.5">
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout">
 
         <Button
             android:id="@+id/bookTicketsButton"
@@ -70,9 +70,9 @@
         app:cardCornerRadius="8dp"
         app:layout_constraintBottom_toTopOf="@+id/getBookedTicketsCard"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookTicketsCard"
-        app:layout_constraintHorizontal_bias="0.5">
+        app:layout_constraintTop_toBottomOf="@+id/bookTicketsCard">
 
         <Button
             android:id="@+id/getTrainDetailsButton"
@@ -94,9 +94,9 @@
         app:cardCornerRadius="8dp"
         app:layout_constraintBottom_toTopOf="@+id/retrievePNRCard"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getTrainDetailsCard"
-        app:layout_constraintHorizontal_bias="0.5">
+        app:layout_constraintTop_toBottomOf="@+id/getTrainDetailsCard">
 
         <Button
             android:id="@+id/getBookedTicketsButton"
@@ -116,11 +116,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="-6dp"
         app:cardCornerRadius="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/cancelTicketsCard"
+        app:layout_constraintBottom_toTopOf="@+id/footerTextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getBookedTicketsCard"
-        app:layout_constraintHorizontal_bias="0.5">
+        app:layout_constraintTop_toBottomOf="@+id/getBookedTicketsCard">
 
         <Button
             android:id="@+id/retrievePNRButton"
@@ -134,28 +134,6 @@
     </androidx.cardview.widget.CardView>
 
     <!-- Cancel Tickets Card -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cancelTicketsCard"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-6dp"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/footerTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/retrievePNRCard"
-        app:layout_constraintHorizontal_bias="0.5">
-
-        <Button
-            android:id="@+id/cancelTicketsButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickCancelTickets"
-            android:padding="16dp"
-            android:text="Cancel Tickets"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
-    </androidx.cardview.widget.CardView>
 
     <!-- Footer -->
     <TextView
@@ -168,7 +146,8 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.451"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/retrievePNRCard"
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

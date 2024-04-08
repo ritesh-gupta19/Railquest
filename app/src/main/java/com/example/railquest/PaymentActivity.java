@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.List;
+import java.util.Objects;
 
 public class PaymentActivity extends AppCompatActivity {
     Button btnConfirmPayment;
@@ -52,9 +53,11 @@ public class PaymentActivity extends AppCompatActivity {
         txtBookingTravelDuration.setText(getIntent().getStringExtra("timeDuration"));
         txtBookingStartStation.setText(getIntent().getStringExtra("boardingStation"));
         txtBookingDestinationStation.setText(getIntent().getStringExtra("destinationStation"));
-        txtBookingPrice.setText(getIntent().getStringExtra("seatPrice"));
         travellerName_age_gender = getIntent().getStringArrayListExtra("travellerName_age_gender");
         travellerBerth = getIntent().getStringArrayListExtra("travellerBerth");
+
+        int totalPrice = Integer.parseInt(Objects.requireNonNull(getIntent().getStringExtra("seatPrice")).replaceAll("[^0-9]", "")) * travellerName_age_gender.size();
+        txtBookingPrice.setText(String.valueOf(totalPrice));
     }
 
     public List<String> getTravellerName_age_gender() {
