@@ -2,8 +2,9 @@ package com.example.railquest;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
+import android.util.Log;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,27 +15,31 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DBHandler {
-    private static String getDataFrom(Context context, int id) {
+    private static String getDataFromEditText(Context context, int id) {
         EditText editText = ((Activity)context).findViewById(id);
         return editText.getText().toString();
     }
+
     public static UserInfo makeUserInfoObject(Context context) {
         UserInfo userInfo = new UserInfo();
 
-        userInfo.setMobileNumber(getDataFrom(context, R.id.editTextPhone));
-        userInfo.setEmail(getDataFrom(context, R.id.editTextTextEmailAddress));
-        userInfo.setName(getDataFrom(context, R.id.editTextText2));
-        userInfo.setPassword(getDataFrom(context, R.id.editTextTextPassword2));
-        userInfo.setFirstName(getDataFrom(context, R.id.editTextText3));
-        userInfo.setMiddleName(getDataFrom(context, R.id.editTextText4));
-        userInfo.setLastName(getDataFrom(context, R.id.editTextText5));
-        userInfo.setDob(getDataFrom(context, R.id.editTextDate2));
-        userInfo.setNationality(getDataFrom(context, R.id.editTextText6));
-        userInfo.setAddress(getDataFrom(context, R.id.editTextText7));
-        userInfo.setCountry(getDataFrom(context, R.id.editTextText8));
-        userInfo.setPinCode(getDataFrom(context, R.id.editTextNumber));
-        userInfo.setCity(getDataFrom(context, R.id.editTextText9));
+        userInfo.setMobileNumber(getDataFromEditText(context, R.id.editTextPhone));
+        userInfo.setEmail(getDataFromEditText(context, R.id.editTextTextEmailAddress));
+        userInfo.setName(getDataFromEditText(context, R.id.editTextText2));
+        userInfo.setPassword(getDataFromEditText(context, R.id.editTextTextPassword2));
+        userInfo.setFirstName(getDataFromEditText(context, R.id.editTextText3));
+        userInfo.setMiddleName(getDataFromEditText(context, R.id.editTextText4));
+        userInfo.setLastName(getDataFromEditText(context, R.id.editTextText5));
+        userInfo.setDob(getDataFromEditText(context, R.id.editTextDate2));
+        userInfo.setNationality(getDataFromEditText(context, R.id.editTextText6));
+        userInfo.setAddress(getDataFromEditText(context, R.id.editTextText7));
+        userInfo.setCountry(getDataFromEditText(context, R.id.editTextText8));
+        userInfo.setPinCode(getDataFromEditText(context, R.id.editTextNumber));
+        userInfo.setCity(getDataFromEditText(context, R.id.editTextText9));
 
 //        Log.d("DBHandler_data", getDataFrom(context, R.id.editTextPhone) + " " +
 //                getDataFrom(context, R.id.editTextTextEmailAddress) + " " +
@@ -112,5 +117,56 @@ public class DBHandler {
         });
 
         return userValidityFlag[0];
+    }
+    private static String getDataFromTextView(Context context, int id) {
+        TextView textView = ((Activity)context).findViewById(id);
+        return textView.getText().toString();
+    }
+
+    public static Ticket makeTicketObject(Context context) {
+        Ticket ticket = new Ticket();
+
+        if (!(context instanceof PaymentActivity)) {
+            Log.d("bookTickets", "makeTicketObject: context not an instance of PaymentActivity");
+            return new Ticket();
+        }
+
+        ticket.setTrainName(getDataFromTextView(context, R.id.txtBookingTrainName));
+        ticket.setTrainNumber(getDataFromTextView(context, R.id.txtBookingTrainNumber));
+        ticket.setStartTimeDate(getDataFromTextView(context, R.id.txtBookingStartTimeDate));
+        ticket.setEndTimeDate(getDataFromTextView(context, R.id.txtBookingEndTimeDate));
+        ticket.setTimeDuration(getDataFromTextView(context, R.id.txtBookingTimeDuration));
+        ticket.setBoardingStationName(getDataFromTextView(context, R.id.txtBookingStartStation));
+        ticket.setDestinationStationName(getDataFromTextView(context, R.id.txtBookingDestinationStation));
+        ticket.setBookingTier(getDataFromTextView(context, R.id.txtBookingTier));
+        ticket.setBookingQuota(getDataFromTextView(context, R.id.txtBookingQuota));
+        ticket.setSeatPrice(getDataFromTextView(context, R.id.txtBookingPrice));
+        ticket.setTravellerName_age_gender(((PaymentActivity) context).getTravellerName_age_gender());
+        ticket.setTravellerBerth(((PaymentActivity) context).getTravellerBerth());
+
+        return ticket;
+
+    }
+
+    public static void bookTickets(Context context) {
+        String databaseURL = "https://railquest-c25ea-default-rtdb.asia-southeast1.firebasedatabase.app/";
+        FirebaseDatabase database = FirebaseDatabase.getInstance(databaseURL);
+        DatabaseReference databaseReference = database.getReference("test");
+
+        String ticketID = databaseReference.push().getKey();
+
+        if (ticketID != null) {
+            databaseReference.child(ticketID).setValue(makeTicketObject(context))
+                    .addOnSuccessListener(unused -> {
+                        Toast.makeText(context, "Booking Success", Toast.LENGTH_SHORT).show();
+                        if (context instanceof Activity) {
+                            ((Activity) context).finish();
+                        }
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(context, "Error generating ticket!", Toast.LENGTH_SHORT).show();
+                    });
+        }
+
     }
 }
