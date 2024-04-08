@@ -1,7 +1,6 @@
 package com.example.railquest;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.compose.ui.text.intl.Locale;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -28,7 +27,7 @@ public class SignUp extends AppCompatActivity {
     private EditText confirmPassword;
     private EditText firstName;
     private EditText dateOfBirth;
-    private EditText resedentialAddress;
+    private EditText residentialAddress;
     private EditText country;
     private EditText pinCode;
     private EditText city;
@@ -46,7 +45,7 @@ public class SignUp extends AppCompatActivity {
         confirmPassword = findViewById(R.id.editTextTextPassword4);
         firstName = findViewById(R.id.editTextText3);
         dateOfBirth = findViewById(R.id.editTextDate2);
-        resedentialAddress = findViewById(R.id.editTextText7);
+        residentialAddress = findViewById(R.id.editTextText7);
         country = findViewById(R.id.editTextText8);
         pinCode = findViewById(R.id.editTextNumber);
         city = findViewById(R.id.editTextText9);
@@ -62,6 +61,8 @@ public class SignUp extends AppCompatActivity {
         });
 
         setFieldListeners();
+
+        button.setOnClickListener(view -> DBHandler.addUser(SignUp.this));
     }
 
     public void showDatePickerDialog() {
@@ -153,7 +154,7 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
-        resedentialAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        residentialAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus) {
@@ -271,7 +272,7 @@ public class SignUp extends AppCompatActivity {
     }
 
     private boolean validateresidentialAddress() {
-        String residential_address = resedentialAddress.getText().toString();
+        String residential_address = residentialAddress.getText().toString();
         if(residential_address.length() == 0) {
             firstName.setError("Please enter a valid address");
             return false;
@@ -372,5 +373,9 @@ public class SignUp extends AppCompatActivity {
             // Show error message or Toast indicating validation errors
             Toast.makeText(this, "Please fill all compulsory fields correctly", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void closeActivity() {
+        finish();
     }
 }

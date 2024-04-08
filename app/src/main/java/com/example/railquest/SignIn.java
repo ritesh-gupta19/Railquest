@@ -84,7 +84,11 @@ public class SignIn extends AppCompatActivity {
             isValid = false;
         }
 
-        if (isValid) {
+//        String username = userIdEditText.getText().toString();
+//        String password = passwordEditText.getText().toString();
+//        if (DBHandler.verifyUserCredentials(username, password, this) != 1) return;
+
+        if (true) {
             // Switch to next page
             Intent intent = new Intent(this, firstEntryPage.class); // Replace NextActivity with the name of your next activity
             startActivity(intent);
@@ -95,5 +99,6 @@ public class SignIn extends AppCompatActivity {
             // Show error message or Toast indicating validation errors
             Toast.makeText(this, "Please fill all compulsory fields correctly", Toast.LENGTH_SHORT).show();
         }
+
     }
 }

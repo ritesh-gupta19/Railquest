@@ -30,15 +30,19 @@ public class firstEntryPage extends AppCompatActivity {
 
     public void onClickBookTickets(View v) {
         //functionality for book tickets button....
-    }
-
-    public void onClickTrainDetails(View v) {
-        //functionality for get train details button....
         Intent intent = new Intent(this, search_page.class); // Replace NextActivity with the name of your next activity
         startActivity(intent);
     }
 
+    public void onClickTrainDetails(View v) {
+        //functionality for get train details button....
+    }
+
     public void onClickYourBookings(View v) {
+        // temporary functionality for dummy trains view
+        Intent intent = new Intent(this, ListBookings.class);
+        startActivity(intent);
+
         //functionality for your bookings button....
     }
 
@@ -48,5 +52,9 @@ public class firstEntryPage extends AppCompatActivity {
 
     public void onClickCancelTickets(View v) {
         //functionality for cancel tickets button....
+//        public void openNewTraveller(View v) {
+            Intent intent = new Intent(this, Booking_Page_User_Details_Trip.class);
+            startActivity(intent);
+//        }
     }
 }
