@@ -21,8 +21,8 @@ public class Booking_Page_User_Details_Trip extends AppCompatActivity {
             txtBookingDestinationTimeDate, txtBookingTravelDuration, txtBookingStartStation,
             txtBookingDestinationStation;
     private RecyclerView recViewTravellerList;
-    List<String> travellerName_age;
-    List<String> travellerBerth;
+    ArrayList<String> travellerName_age_gender;
+    ArrayList<String> travellerBerth;
 
     // Define a constant for request code
     private static final int REQUEST_CODE_ADD_TRAVELLER = 101;
@@ -50,7 +50,7 @@ public class Booking_Page_User_Details_Trip extends AppCompatActivity {
         txtBookingDestinationStation = findViewById(R.id.txtBookedDestinationStation);
         recViewTravellerList = findViewById(R.id.recViewTravellerList);
 
-        travellerName_age = new ArrayList<>();
+        travellerName_age_gender = new ArrayList<>();
         travellerBerth = new ArrayList<>();
 
         // Set onClick listeners for buttons
@@ -65,19 +65,38 @@ public class Booking_Page_User_Details_Trip extends AppCompatActivity {
                 // Add your logic for proceeding to payment here
                 Toast.makeText(Booking_Page_User_Details_Trip.this, "Proceeding to payment...", Toast.LENGTH_SHORT).show();
             }
+
+            Intent intent = new Intent(this, PaymentActivity.class);
+
+            // add string extras
+            intent.putExtra("trainName", getIntent().getStringExtra("trainName"));
+            intent.putExtra("trainNumber", getIntent().getStringExtra("trainNumber"));
+            intent.putExtra("startTimeDate", getIntent().getStringExtra("startTimeDate"));
+            intent.putExtra("endTimeDate", getIntent().getStringExtra("endTimeDate"));
+            intent.putExtra("timeDuration", getIntent().getStringExtra("timeDuration"));
+            intent.putExtra("boardingStation", getIntent().getStringExtra("boardingStation"));
+            intent.putExtra("destinationStation", getIntent().getStringExtra("destinationStation"));
+            intent.putExtra("bookingTier", getIntent().getStringExtra("bookingTier"));
+            intent.putExtra("bookingQuota", getIntent().getStringExtra("bookingQuota"));
+            intent.putExtra("seatPrice", getIntent().getStringExtra("seatPrice"));
+            intent.putExtra("travellerName_age_gender", travellerName_age_gender);
+            intent.putExtra("travellerBerth", travellerBerth);
+
+            startActivity(intent);
         });
 
-        // Set sample data for the first card (you can replace it with dynamic data)
-        txtBookingTrainName.setText("Kyq Gtnr Express");
-        txtBookingTrainNumber.setText("15077");
-        txtBookingTier.setText("3 Tier AC");
-        txtBookingSeatsRemaining.setText("Available 44");
-        txtBookingQuota.setText("General Quota");
-        txtBookingStartTimeDate.setText("8:00 PM, 30 Apr");
-        txtBookingDestinationTimeDate.setText("9:13 PM, 1 May");
-        txtBookingTravelDuration.setText("25h 13m");
-        txtBookingStartStation.setText("Kamakhya (KYQ)");
-        txtBookingDestinationStation.setText("Basti (BST)");
+        // get data from previous intent
+
+        txtBookingTrainName.setText(getIntent().getStringExtra("trainName"));
+        txtBookingTrainNumber.setText(getIntent().getStringExtra("trainNumber"));
+        txtBookingTier.setText(getIntent().getStringExtra("bookingTier"));
+        txtBookingSeatsRemaining.setText("Available " + getIntent().getStringExtra("availableSeats"));
+        txtBookingQuota.setText(getIntent().getStringExtra("bookingQuota"));
+        txtBookingStartTimeDate.setText(getIntent().getStringExtra("startTimeDate"));
+        txtBookingDestinationTimeDate.setText(getIntent().getStringExtra("endTimeDate"));
+        txtBookingTravelDuration.setText(getIntent().getStringExtra("timeDuration"));
+        txtBookingStartStation.setText(getIntent().getStringExtra("boardingStation"));
+        txtBookingDestinationStation.setText(getIntent().getStringExtra("destinationStation"));
     }
 
     // Handle the result from the child activity
@@ -94,7 +113,7 @@ public class Booking_Page_User_Details_Trip extends AppCompatActivity {
                 String berthPreference = data.getStringExtra("berthPreference");
                 String nationality = data.getStringExtra("nationality");
 
-                travellerName_age.add(passengerName + ", " + passengerAge + ", (" + passengerGender + ")");
+                travellerName_age_gender.add(passengerName + ", " + passengerAge + ", (" + passengerGender + ")");
                 travellerBerth.add(berthPreference);
 
                 updateTravellerDetails();
@@ -114,7 +133,7 @@ public class Booking_Page_User_Details_Trip extends AppCompatActivity {
     }
 
     private void updateTravellerDetails() {
-        TravellerListCustomAdapter travellerListCustomAdapter = new TravellerListCustomAdapter(this, travellerName_age, travellerBerth);
+        TravellerListCustomAdapter travellerListCustomAdapter = new TravellerListCustomAdapter(this, travellerName_age_gender, travellerBerth);
         recViewTravellerList.setAdapter(travellerListCustomAdapter);
         recViewTravellerList.setLayoutManager(new LinearLayoutManager(this));
     }

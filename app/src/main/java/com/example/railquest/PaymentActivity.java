@@ -10,9 +10,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.List;
+
 public class PaymentActivity extends AppCompatActivity {
     Button btnConfirmPayment;
-    TextView txtBookingTrainName, txtBookingTrainNumber, txtBookingTier, txtBookingSeatsRemaining, txtBookingQuota, txtBookingStartTimeDate, txtBookingDestinationTimeDate, txtBookingTravelDuration, txtBookingStartStation, txtBookingDestinationStation, txtBookingPrice;
+    TextView txtBookingTrainName, txtBookingTrainNumber, txtBookingTier, txtBookingQuota, txtBookingStartTimeDate, txtBookingDestinationTimeDate, txtBookingTravelDuration, txtBookingStartStation, txtBookingDestinationStation, txtBookingPrice;
+    List<String> travellerName_age_gender;
+    List<String> travellerBerth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,6 @@ public class PaymentActivity extends AppCompatActivity {
         txtBookingTrainName = findViewById(R.id.txtBookingTrainName);
         txtBookingTrainNumber = findViewById(R.id.txtBookingTrainNumber);
         txtBookingTier = findViewById(R.id.txtBookingTier);
-        txtBookingSeatsRemaining = findViewById(R.id.txtBookingSeatsRemaining);
         txtBookingQuota = findViewById(R.id.txtBookingQuota);
         txtBookingStartTimeDate = findViewById(R.id.txtBookingStartTimeDate);
         txtBookingDestinationTimeDate = findViewById(R.id.txtBookingEndTimeDate);
@@ -43,7 +46,6 @@ public class PaymentActivity extends AppCompatActivity {
         txtBookingTrainName.setText(getIntent().getStringExtra("trainName"));
         txtBookingTrainNumber.setText(getIntent().getStringExtra("trainNumber"));
         txtBookingTier.setText(getIntent().getStringExtra("bookingTier"));
-        txtBookingSeatsRemaining.setText(getIntent().getStringExtra("availableSeats"));
         txtBookingQuota.setText(getIntent().getStringExtra("bookingQuota"));
         txtBookingStartTimeDate.setText(getIntent().getStringExtra("startTimeDate"));
         txtBookingDestinationTimeDate.setText(getIntent().getStringExtra("endTimeDate"));
@@ -51,9 +53,21 @@ public class PaymentActivity extends AppCompatActivity {
         txtBookingStartStation.setText(getIntent().getStringExtra("boardingStation"));
         txtBookingDestinationStation.setText(getIntent().getStringExtra("destinationStation"));
         txtBookingPrice.setText(getIntent().getStringExtra("seatPrice"));
+        travellerName_age_gender = getIntent().getStringArrayListExtra("travellerName_age_gender");
+        travellerBerth = getIntent().getStringArrayListExtra("travellerBerth");
+    }
+
+    public List<String> getTravellerName_age_gender() {
+        return travellerName_age_gender;
+    }
+
+    public List<String> getTravellerBerth() {
+        return travellerBerth;
     }
 
     private void confirmPaymentAndBook() {
         // upload details to realtime database
+        DBHandler.bookTickets(this);
+
     }
 }
