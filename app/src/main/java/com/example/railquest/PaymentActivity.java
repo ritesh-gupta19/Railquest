@@ -15,7 +15,7 @@ import java.util.Objects;
 
 public class PaymentActivity extends AppCompatActivity {
     Button btnConfirmPayment;
-    TextView txtBookingTrainName, txtBookingTrainNumber, txtBookingTier, txtBookingQuota, txtBookingStartTimeDate, txtBookingDestinationTimeDate, txtBookingTravelDuration, txtBookingStartStation, txtBookingDestinationStation, txtBookingPrice;
+    TextView txtBookingTrainName, txtBookingTrainNumber, txtBookingTier, txtBookingStartTimeDate, txtBookingDestinationTimeDate, txtBookingTravelDuration, txtBookingStartStation, txtBookingDestinationStation, txtBookingPrice;
     List<String> travellerName_age_gender;
     List<String> travellerBerth;
 
@@ -34,7 +34,6 @@ public class PaymentActivity extends AppCompatActivity {
         txtBookingTrainName = findViewById(R.id.txtBookingTrainName);
         txtBookingTrainNumber = findViewById(R.id.txtBookingTrainNumber);
         txtBookingTier = findViewById(R.id.txtBookingTier);
-        txtBookingQuota = findViewById(R.id.txtBookingQuota);
         txtBookingStartTimeDate = findViewById(R.id.txtBookingStartTimeDate);
         txtBookingDestinationTimeDate = findViewById(R.id.txtBookingEndTimeDate);
         txtBookingTravelDuration = findViewById(R.id.txtBookingTimeDuration);
@@ -47,7 +46,6 @@ public class PaymentActivity extends AppCompatActivity {
         txtBookingTrainName.setText(getIntent().getStringExtra("trainName"));
         txtBookingTrainNumber.setText(getIntent().getStringExtra("trainNumber"));
         txtBookingTier.setText(getIntent().getStringExtra("bookingTier"));
-        txtBookingQuota.setText(getIntent().getStringExtra("bookingQuota"));
         txtBookingStartTimeDate.setText(getIntent().getStringExtra("startTimeDate"));
         txtBookingDestinationTimeDate.setText(getIntent().getStringExtra("endTimeDate"));
         txtBookingTravelDuration.setText(getIntent().getStringExtra("timeDuration"));

@@ -1,10 +1,11 @@
 package com.example.railquest;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.xml.transform.sax.SAXResult;
 
-public class Ticket {
+public class Ticket implements Serializable {
     private String TrainName;
     private String TrainNumber;
     private String pnr;

@@ -32,32 +32,69 @@ public class Booked_Details_Complete extends AppCompatActivity {
         TextView txtBookedTotalFair = findViewById(R.id.txtBookedTotalFair);
         RecyclerView recViewTravellerList = findViewById(R.id.recViewTravellerList);
 
-        // Set dummy data (replace with actual data)
-        txtBookedTrainName.setText("Kyq Gtnr Express");
-        txtBookedTrainNumber.setText("15077");
-        txtBookedTier.setText("3 Tier AC");
-        txtBookedStartTimeDate.setText("8:00 PM, 30 Apr");
-        txtBookedDestinationTimeDate.setText("9:13 PM, 1 May");
-        txtBookedTravelDuration.setText("25h 13m");
-        txtBookedStartStation.setText("Kamakhya (KYQ)");
-        txtBookedDestinationStation.setText("Basti (BST)");
-        txtBookedPNRNumber.setText("6434199000");
-        txtBookedBaseFair.setText("Rs 3200");
-        txtBookedAdditionalFare.setText("Rs 25");
-        txtBookedTotalFair.setText("Rs 3225");
+        Ticket ticket = (Ticket) getIntent().getSerializableExtra("ticket");
 
-        List<String> travellerName= new ArrayList<>();
-        travellerName.add("Vaibhav");
-        travellerName.add("Dishant");
-        List<String> travellerGenderAge= new ArrayList<>();
-        travellerGenderAge.add("21");
-        travellerGenderAge.add("22");
+        // Set dummy data (replace with actual data)
+        assert ticket != null;
+        txtBookedTrainName.setText(ticket.getTrainName());
+        txtBookedTrainNumber.setText(ticket.getTrainNumber());
+        txtBookedTier.setText(ticket.getBookingTier());
+        txtBookedStartTimeDate.setText(ticket.getStartTimeDate());
+        txtBookedDestinationTimeDate.setText(ticket.getEndTimeDate());
+        txtBookedTravelDuration.setText(ticket.getTimeDuration());
+        txtBookedStartStation.setText(ticket.getBoardingStationName());
+        txtBookedDestinationStation.setText(ticket.getDestinationStationName());
+        txtBookedPNRNumber.setText(ticket.getPnr());
+        txtBookedBaseFair.setText(ticket.getSeatPrice());
+        txtBookedAdditionalFare.setText("0");
+        txtBookedTotalFair.setText(ticket.getSeatPrice());
+
+        List<String> travellerName= ticket.getTravellerName_age_gender();
+        List<String> travellerGenderAge= ticket.getTravellerBerth();
         List<String> travellerBookedStatus= new ArrayList<>();
-        travellerBookedStatus.add("CNF/A1/B19");
-        travellerBookedStatus.add("CNF/A1/B20");
         List<String> travellerCurrentStatus= new ArrayList<>();
-        travellerCurrentStatus.add("CNF/A1/B19");
-        travellerCurrentStatus.add("CNF/A1/B20");
+
+        List<String> travellerBerth = ticket.getTravellerBerth();
+
+        for (int i=0; i< travellerName.size(); i++) {
+            String bookedStatus = "CNF" + "/";
+            switch (txtBookedTier.getText().toString()) {
+                case "SL":
+                    bookedStatus += "S1";
+                    break;
+                case "3A":
+                    bookedStatus += "B1";
+                    break;
+                case "2A":
+                    bookedStatus += "A1";
+                    break;
+                case "1A":
+                    bookedStatus += "HS1";
+                    break;
+                default:
+                    bookedStatus += "B2";
+                    break;
+            }
+            bookedStatus += "/" + (i+1) + "/";
+
+            String currentBerth = travellerBerth.get(i);
+
+            if (currentBerth.equals("Lower")) {
+                bookedStatus += "LB";
+            } else if (currentBerth.equals("Middle")) {
+                bookedStatus += "MB";
+            } else if (currentBerth.equals("Upper")) {
+                bookedStatus += "UB";
+            } else if (currentBerth.equals("Side Lower")) {
+                bookedStatus += "SLB";
+            } else if (currentBerth.equals("Side Upper")) {
+                bookedStatus += "SUB";
+            } else {
+                bookedStatus += "MB";
+            }
+            travellerBookedStatus.add(bookedStatus);
+            travellerCurrentStatus.add(bookedStatus);
+        }
 
         BookedTravellerListCustomAdapter adapter = new BookedTravellerListCustomAdapter(this, travellerName, travellerGenderAge, travellerBookedStatus, travellerCurrentStatus);
         recViewTravellerList.setAdapter(adapter);

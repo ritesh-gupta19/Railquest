@@ -66,7 +66,9 @@ public class BookingTicketListCustomAdapter extends RecyclerView.Adapter<Booking
                         Intent intent = new Intent(context, Booked_Details_Complete.class);
 
                         // add string extras
+                        intent.putExtra("ticket", bookingTicket.getTicket());
 
+                        context.startActivity(intent);
                     }
                 }
             });

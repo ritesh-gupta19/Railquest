@@ -152,7 +152,7 @@ public class DBHandler {
     public static void bookTickets(Context context) {
         String databaseURL = "https://railquest-c25ea-default-rtdb.asia-southeast1.firebasedatabase.app/";
         FirebaseDatabase database = FirebaseDatabase.getInstance(databaseURL);
-        DatabaseReference databaseReference = database.getReference("test");
+        DatabaseReference databaseReference = database.getReference("test2");
 
         String ticketID = databaseReference.push().getKey();
 
@@ -170,4 +170,93 @@ public class DBHandler {
         }
 
     }
+
+    public static void fetchTickets(final TicketsFetchListener listener) {
+        // Get reference to the Firebase Realtime Database with your custom URL
+        String databaseURL = "https://railquest-c25ea-default-rtdb.asia-southeast1.firebasedatabase.app/";
+        FirebaseDatabase database = FirebaseDatabase.getInstance(databaseURL);
+
+        // Get reference to the "test" node in the database
+        DatabaseReference ticketsRef = database.getReference("test2");
+
+        // Create a list to store fetched tickets
+        List<Ticket> tickets = new ArrayList<>();
+
+        // Add a listener to fetch data from the database
+        ticketsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Clear the existing list
+                tickets.clear();
+
+                // Iterate through each child node (ticket) in the "test" node
+                for (DataSnapshot ticketSnapshot : dataSnapshot.getChildren()) {
+                    // Deserialize the ticket data into a Ticket object
+                    Ticket ticket = ticketSnapshot.getValue(Ticket.class);
+                    // Add the deserialized ticket to the list
+                    tickets.add(ticket);
+                }
+
+                // Notify the listener that tickets have been fetched
+                listener.onTicketsFetched(tickets);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle error
+                listener.onError(databaseError.getMessage());
+            }
+        });
+    }
+
+    // Interface for callback when tickets are fetched
+    public interface TicketsFetchListener {
+        void onTicketsFetched(List<Ticket> tickets);
+        void onError(String errorMessage);
+    }
+
+    public static void fetchUsers(final UserFetchListener listener) {
+        // Get reference to the Firebase Realtime Database with your custom URL
+        String databaseURL = "https://railquest-c25ea-default-rtdb.asia-southeast1.firebasedatabase.app/";
+        FirebaseDatabase database = FirebaseDatabase.getInstance(databaseURL);
+
+        // Get reference to the "test" node in the database
+        DatabaseReference users = database.getReference("Users");
+
+        // Create a list to store fetched userInfoList
+        List<UserInfo> userInfoList = new ArrayList<>();
+
+        // Add a listener to fetch data from the database
+        users.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Clear the existing list
+                userInfoList.clear();
+
+                // Iterate through each child node (ticket) in the "test" node
+                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                    // Deserialize the ticket data into a Ticket object
+                    UserInfo userInfo = userSnapshot.getValue(UserInfo.class);
+                    // Add the deserialized ticket to the list
+                    userInfoList.add(userInfo);
+                }
+
+                // Notify the listener that userInfoList has been fetched
+                listener.onUsersFetched(userInfoList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle error
+                listener.onError(databaseError.getMessage());
+            }
+        });
+    }
+
+    // Interface for callback when tickets are fetched
+    public interface UserFetchListener {
+        void onUsersFetched(List<UserInfo> userInfoList);
+        void onError(String errorMessage);
+    }
+
 }

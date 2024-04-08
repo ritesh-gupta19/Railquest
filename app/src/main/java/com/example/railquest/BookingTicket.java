@@ -8,6 +8,7 @@ public class BookingTicket {
     private String destinationStationName;
     private String pnr;
     private String bookingDate;
+    private Ticket ticket;
 
     public BookingTicket(String trainName, String trainNumber, String startTimeDate, String boardingStationName, String destinationStationName, String pnr, String bookingDate) {
         this.trainName = trainName;
@@ -17,6 +18,17 @@ public class BookingTicket {
         this.destinationStationName = destinationStationName;
         this.pnr = pnr;
         this.bookingDate = bookingDate;
+    }
+
+    public BookingTicket(Ticket ticket) {
+        this.trainName = ticket.getTrainName();
+        this.trainNumber = ticket.getTrainNumber();
+        this.startTimeDate = ticket.getStartTimeDate();
+        this.boardingStationName = ticket.getBoardingStationName();
+        this.destinationStationName = ticket.getDestinationStationName();
+        this.pnr = ticket.getPnr();
+        this.bookingDate = "9 Apr: 2024";
+        this.ticket = ticket;
     }
 
     public String getTrainName() {
@@ -73,5 +85,9 @@ public class BookingTicket {
 
     public void setBookingDate(String bookingDate) {
         this.bookingDate = bookingDate;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
     }
 }

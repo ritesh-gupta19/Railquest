@@ -61,28 +61,32 @@ public class Booking_Page_User_Details_Trip extends AppCompatActivity {
 
         btnProceedToPayment.setOnClickListener(v -> {
             // Validate email and phone number
-            if (validateEmail() && validatePhoneNumber()) {
+            if (validateEmail() && validatePhoneNumber() && !travellerName_age_gender.isEmpty()) {
                 // Add your logic for proceeding to payment here
                 Toast.makeText(Booking_Page_User_Details_Trip.this, "Proceeding to payment...", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(this, PaymentActivity.class);
+
+                // add string extras
+                intent.putExtra("trainName", getIntent().getStringExtra("trainName"));
+                intent.putExtra("trainNumber", getIntent().getStringExtra("trainNumber"));
+                intent.putExtra("startTimeDate", getIntent().getStringExtra("startTimeDate"));
+                intent.putExtra("endTimeDate", getIntent().getStringExtra("endTimeDate"));
+                intent.putExtra("timeDuration", getIntent().getStringExtra("timeDuration"));
+                intent.putExtra("boardingStation", getIntent().getStringExtra("boardingStation"));
+                intent.putExtra("destinationStation", getIntent().getStringExtra("destinationStation"));
+                intent.putExtra("bookingTier", getIntent().getStringExtra("bookingTier"));
+                intent.putExtra("bookingQuota", getIntent().getStringExtra("bookingQuota"));
+                intent.putExtra("seatPrice", getIntent().getStringExtra("seatPrice"));
+                intent.putExtra("travellerName_age_gender", travellerName_age_gender);
+                intent.putExtra("travellerBerth", travellerBerth);
+
+                startActivity(intent);
+            } else if (travellerName_age_gender.isEmpty()) {
+                Toast.makeText(this, "Enter a Traveler", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Please fill all Details", Toast.LENGTH_SHORT).show();
             }
-
-            Intent intent = new Intent(this, PaymentActivity.class);
-
-            // add string extras
-            intent.putExtra("trainName", getIntent().getStringExtra("trainName"));
-            intent.putExtra("trainNumber", getIntent().getStringExtra("trainNumber"));
-            intent.putExtra("startTimeDate", getIntent().getStringExtra("startTimeDate"));
-            intent.putExtra("endTimeDate", getIntent().getStringExtra("endTimeDate"));
-            intent.putExtra("timeDuration", getIntent().getStringExtra("timeDuration"));
-            intent.putExtra("boardingStation", getIntent().getStringExtra("boardingStation"));
-            intent.putExtra("destinationStation", getIntent().getStringExtra("destinationStation"));
-            intent.putExtra("bookingTier", getIntent().getStringExtra("bookingTier"));
-            intent.putExtra("bookingQuota", getIntent().getStringExtra("bookingQuota"));
-            intent.putExtra("seatPrice", getIntent().getStringExtra("seatPrice"));
-            intent.putExtra("travellerName_age_gender", travellerName_age_gender);
-            intent.putExtra("travellerBerth", travellerBerth);
-
-            startActivity(intent);
         });
 
         // get data from previous intent
@@ -126,7 +130,7 @@ public class Booking_Page_User_Details_Trip extends AppCompatActivity {
                         "\nBerth Preference: " + berthPreference +
                         "\nNationality: " + nationality;
 //                Log.d("now", "onActivityResult: "+ travelerDetails);
-                Toast.makeText(this, travelerDetails, Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, travelerDetails, Toast.LENGTH_LONG).show();
                 // Update TextView or any other UI component with travelerDetails
             }
         }
