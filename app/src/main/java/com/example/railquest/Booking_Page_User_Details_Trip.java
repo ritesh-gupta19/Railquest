@@ -2,7 +2,6 @@ package com.example.railquest;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,16 +38,16 @@ public class Booking_Page_User_Details_Trip extends AppCompatActivity {
         Button btnProceedToPayment = findViewById(R.id.btnProceedToPayment);
         edtTxtEmail = findViewById(R.id.edtTxtEmail);
         edtTxtPhoneNumber = findViewById(R.id.edtTxtPhoneNumber);
-        txtBookingTrainName = findViewById(R.id.txtBookingTrainName);
-        txtBookingTrainNumber = findViewById(R.id.txtBookingTrainNumber);
-        txtBookingTier = findViewById(R.id.txtBookingTier);
+        txtBookingTrainName = findViewById(R.id.txtBookedTrainName);
+        txtBookingTrainNumber = findViewById(R.id.txtBookedTrainNumber);
+        txtBookingTier = findViewById(R.id.txtBookedTier);
         txtBookingSeatsRemaining = findViewById(R.id.txtBookingSeatsRemaining);
         txtBookingQuota = findViewById(R.id.txtBookingQuota);
-        txtBookingStartTimeDate = findViewById(R.id.txtBookingStartTimeDate);
-        txtBookingDestinationTimeDate = findViewById(R.id.txtBookingDestinationTimeDate);
-        txtBookingTravelDuration = findViewById(R.id.txtBookingTravelDuration);
-        txtBookingStartStation = findViewById(R.id.txtBookingStartStation);
-        txtBookingDestinationStation = findViewById(R.id.txtBookingDestinationStation);
+        txtBookingStartTimeDate = findViewById(R.id.txtBookedStartTimeDate);
+        txtBookingDestinationTimeDate = findViewById(R.id.txtBookedDestinationTimeDate);
+        txtBookingTravelDuration = findViewById(R.id.txtBookedTravelDuration);
+        txtBookingStartStation = findViewById(R.id.txtBookedStartStation);
+        txtBookingDestinationStation = findViewById(R.id.txtBookedDestinationStation);
         recViewTravellerList = findViewById(R.id.recViewTravellerList);
 
         travellerName_age = new ArrayList<>();
