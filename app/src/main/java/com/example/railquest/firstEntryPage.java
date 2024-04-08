@@ -48,6 +48,8 @@ public class firstEntryPage extends AppCompatActivity {
 
     public void onClickPNRStatus(View v) {
         //functionality for check PNR status button....
+        Intent intent = new Intent(this, PNR_status.class); // Replace NextActivity with the name of your next activity
+        startActivity(intent);
     }
 
     public void onClickCancelTickets(View v) {

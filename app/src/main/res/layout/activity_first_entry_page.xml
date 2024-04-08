@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
     tools:context=".firstEntryPage">
+
     <!-- Header -->
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@color/colorprimary"
+        android:layout_height="100dp"
         android:orientation="horizontal"
         android:padding="16dp"
         tools:ignore="MissingConstraints">
@@ -21,7 +22,7 @@
             android:layout_width="368dp"
             android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/new_train" />
+            android:src="@drawable/train_new" />
 
         <!-- Title -->
         <TextView
@@ -35,90 +36,139 @@
             android:textSize="20sp" />
     </LinearLayout>
 
-
-    <Button
-        android:id="@+id/bookTicketsButton"
-        android:layout_width="wrap_content"
+    <!-- Book Tickets Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bookTicketsCard"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        android:drawableStart="@drawable/new_train"
-        android:onClick="onClickBookTickets"
-        android:padding="16dp"
-        android:text="Book Tickets"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/getTrainDetailsButton"
+        android:layout_marginTop="1dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/getTrainDetailsCard"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerLayout"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintHorizontal_bias="0.5">
 
+        <Button
+            android:id="@+id/bookTicketsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/new_train"
+            android:onClick="onClickBookTickets"
+            android:padding="16dp"
+            android:text="Book Tickets"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/getTrainDetailsButton"
-        android:layout_width="wrap_content"
+    <!-- Get Train Details Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/getTrainDetailsCard"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:onClick="onClickTrainDetails"
-        android:padding="16dp"
-        android:text="Train Details"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/getBookedTicketsButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookTicketsButton"
-        app:layout_constraintVertical_bias="0.5" />
-
-
-    <Button
-        android:id="@+id/getBookedTicketsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:onClick="onClickYourBookings"
-        android:padding="16dp"
-        android:text="Your Bookings"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/retrievePNRButton"
+        android:layout_marginTop="-6dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/getBookedTicketsCard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getTrainDetailsButton"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/bookTicketsCard"
+        app:layout_constraintHorizontal_bias="0.5">
 
+        <Button
+            android:id="@+id/getTrainDetailsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickTrainDetails"
+            android:padding="16dp"
+            android:text="Train Details"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/retrievePNRButton"
-        android:layout_width="wrap_content"
+    <!-- Get Booked Tickets Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/getBookedTicketsCard"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:onClick="onClickPNRStatus"
-        android:padding="16dp"
-        android:text="PNR Status"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:layout_marginTop="-6dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/retrievePNRCard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getBookedTicketsButton" />
+        app:layout_constraintTop_toBottomOf="@+id/getTrainDetailsCard"
+        app:layout_constraintHorizontal_bias="0.5">
 
+        <Button
+            android:id="@+id/getBookedTicketsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickYourBookings"
+            android:padding="16dp"
+            android:text="Your Bookings"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/cancelTicketsButton"
+    <!-- Retrieve PNR Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/retrievePNRCard"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-6dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/cancelTicketsCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/getBookedTicketsCard"
+        app:layout_constraintHorizontal_bias="0.5">
+
+        <Button
+            android:id="@+id/retrievePNRButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickPNRStatus"
+            android:padding="16dp"
+            android:text="PNR Status"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Cancel Tickets Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cancelTicketsCard"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-6dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/footerTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/retrievePNRCard"
+        app:layout_constraintHorizontal_bias="0.5">
+
+        <Button
+            android:id="@+id/cancelTicketsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickCancelTickets"
+            android:padding="16dp"
+            android:text="Cancel Tickets"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Footer -->
+    <TextView
+        android:id="@+id/footerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:onClick="onClickCancelTickets"
-        android:padding="16dp"
-        android:text="Cancel Tickets"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:layout_marginBottom="28dp"
+        android:text="powered by railquest"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/retrievePNRButton" />
-
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

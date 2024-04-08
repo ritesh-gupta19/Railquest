@@ -20,8 +20,8 @@
         <activity
             android:name=".PaymentActivity"
             android:exported="false" />
-	<activity	
-	    android:name=".ListBookings"
+	    <activity	
+	        android:name=".ListBookings"
             android:exported="false" />
         <activity
             android:name=".Booked_Details_Complete"
@@ -34,6 +34,18 @@
             android:exported="false" />
         <activity
             android:name=".ActivityListTrain"
+            android:exported="false" />
+        <activity
+            android:name=".PNR_status_display"
+            android:exported="false" />
+        <activity
+            android:name=".passenger_details"
+            android:exported="false" />
+        <activity
+            android:name=".book_train"
+            android:exported="false" />
+        <activity
+            android:name=".PNR_status"
             android:exported="false" />
         <activity
             android:name=".search_page"
