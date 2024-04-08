@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".book_train">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book Train"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextDeparture"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Departure Station"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextArrival"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Arrival Station"
+        app:layout_constraintTop_toBottomOf="@id/editTextDeparture"
+        app:layout_constraintStart_toStartOf="@id/editTextDeparture"
+        app:layout_constraintEnd_toEndOf="@id/editTextDeparture"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date of Travel"
+        app:layout_constraintTop_toBottomOf="@id/editTextArrival"
+        app:layout_constraintStart_toStartOf="@id/editTextArrival"
+        app:layout_constraintEnd_toStartOf="@id/imageViewCalendar"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"/>
+
+    <ImageView
+        android:id="@+id/imageViewCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_calender"
+        app:layout_constraintTop_toTopOf="@id/textViewDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/textViewDate"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="4dp"
+        android:contentDescription="Calendar"/>
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Select Date"
+        app:layout_constraintTop_toBottomOf="@id/editTextArrival"
+        app:layout_constraintStart_toStartOf="@id/editTextArrival"
+        app:layout_constraintEnd_toStartOf="@id/imageViewCalendar"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:inputType="none"
+        android:focusable="false"
+        android:clickable="true"
+        android:focusableInTouchMode="false"/>
+
+    <Button
+        android:id="@+id/buttonBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book Now"
+        app:layout_constraintTop_toBottomOf="@id/editTextDate"
+        app:layout_constraintStart_toStartOf="@id/editTextDate"
+        app:layout_constraintEnd_toEndOf="@id/editTextDate"
+        android:layout_marginTop="24dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
