@@ -7,6 +7,7 @@ import javax.xml.transform.sax.SAXResult;
 public class Ticket {
     private String TrainName;
     private String TrainNumber;
+    private String pnr;
     private String StartTimeDate;
     private String EndTimeDate;
     private String TimeDuration;
@@ -17,6 +18,7 @@ public class Ticket {
     private String SeatPrice;
     private List<String> TravellerName_age_gender;
     private List<String> travellerBerth;
+    private static int PNR = 100000;
 
     public Ticket() {}
 
@@ -100,6 +102,14 @@ public class Ticket {
         SeatPrice = seatPrice;
     }
 
+    public String getPnr() {
+        return pnr;
+    }
+
+    public void setPnr() {
+        this.pnr = String.valueOf(generatePNR());
+    }
+
     public List<String> getTravellerName_age_gender() {
         return TravellerName_age_gender;
     }
@@ -114,5 +124,9 @@ public class Ticket {
 
     public void setTravellerBerth(List<String> travellerBerth) {
         this.travellerBerth = travellerBerth;
+    }
+
+    public static int generatePNR() {
+        return PNR++;
     }
 }

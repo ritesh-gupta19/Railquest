@@ -133,6 +133,7 @@ public class DBHandler {
 
         ticket.setTrainName(getDataFromTextView(context, R.id.txtBookingTrainName));
         ticket.setTrainNumber(getDataFromTextView(context, R.id.txtBookingTrainNumber));
+        ticket.setPnr();
         ticket.setStartTimeDate(getDataFromTextView(context, R.id.txtBookingStartTimeDate));
         ticket.setEndTimeDate(getDataFromTextView(context, R.id.txtBookingEndTimeDate));
         ticket.setTimeDuration(getDataFromTextView(context, R.id.txtBookingTimeDuration));
