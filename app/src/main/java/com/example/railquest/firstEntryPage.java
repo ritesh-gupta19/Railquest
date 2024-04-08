@@ -30,12 +30,12 @@ public class firstEntryPage extends AppCompatActivity {
 
     public void onClickBookTickets(View v) {
         //functionality for book tickets button....
+        Intent intent = new Intent(this, search_page.class); // Replace NextActivity with the name of your next activity
+        startActivity(intent);
     }
 
     public void onClickTrainDetails(View v) {
         //functionality for get train details button....
-        Intent intent = new Intent(this, search_page.class); // Replace NextActivity with the name of your next activity
-        startActivity(intent);
     }
 
     public void onClickYourBookings(View v) {

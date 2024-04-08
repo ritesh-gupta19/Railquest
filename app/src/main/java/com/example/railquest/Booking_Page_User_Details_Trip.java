@@ -2,7 +2,6 @@ package com.example.railquest;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,16 +38,16 @@ public class Booking_Page_User_Details_Trip extends AppCompatActivity {
         Button btnProceedToPayment = findViewById(R.id.btnProceedToPayment);
         edtTxtEmail = findViewById(R.id.edtTxtEmail);
         edtTxtPhoneNumber = findViewById(R.id.edtTxtPhoneNumber);
-        txtBookingTrainName = findViewById(R.id.txtBookingTrainName);
-        txtBookingTrainNumber = findViewById(R.id.txtBookingTrainNumber);
-        txtBookingTier = findViewById(R.id.txtBookingTier);
-        txtBookingSeatsRemaining = findViewById(R.id.txtBookingSeatsRemaining);
-        txtBookingQuota = findViewById(R.id.txtBookingQuota);
-        txtBookingStartTimeDate = findViewById(R.id.txtBookingStartTimeDate);
+        txtBookingTrainName = findViewById(R.id.textView4);
+        txtBookingTrainNumber = findViewById(R.id.textView5);
+        txtBookingTier = findViewById(R.id.textView11);
+        txtBookingSeatsRemaining = findViewById(R.id.textView13);
+        txtBookingQuota = findViewById(R.id.textView12);
+        txtBookingStartTimeDate = findViewById(R.id.textView6);
         txtBookingDestinationTimeDate = findViewById(R.id.txtBookingDestinationTimeDate);
         txtBookingTravelDuration = findViewById(R.id.txtBookingTravelDuration);
-        txtBookingStartStation = findViewById(R.id.txtBookingStartStation);
-        txtBookingDestinationStation = findViewById(R.id.txtBookingDestinationStation);
+        txtBookingStartStation = findViewById(R.id.textView9);
+        txtBookingDestinationStation = findViewById(R.id.textView10);
         recViewTravellerList = findViewById(R.id.recViewTravellerList);
 
         travellerName_age = new ArrayList<>();
@@ -66,19 +65,40 @@ public class Booking_Page_User_Details_Trip extends AppCompatActivity {
                 // Add your logic for proceeding to payment here
                 Toast.makeText(Booking_Page_User_Details_Trip.this, "Proceeding to payment...", Toast.LENGTH_SHORT).show();
             }
+
+            Intent intent = new Intent(this, PaymentActivity.class);
+
+            // add extras
+            intent.putExtra("trainName", getIntent().getStringExtra("trainName"));
+            intent.putExtra("trainNumber", getIntent().getStringExtra("trainNumber"));
+            intent.putExtra("startTimeDate", getIntent().getStringExtra("startTimeDate"));
+            intent.putExtra("endTimeDate", getIntent().getStringExtra("endTimeDate"));
+            intent.putExtra("timeDuration", getIntent().getStringExtra("timeDuration"));
+            intent.putExtra("boardingStation", getIntent().getStringExtra("boardingStation"));
+            intent.putExtra("destinationStation", getIntent().getStringExtra("destinationStation"));
+            intent.putExtra("bookingTier", getIntent().getStringExtra("bookingTier"));
+            intent.putExtra("bookingQuota", getIntent().getStringExtra("bookingQuota"));
+            intent.putExtra("availableSeats", getIntent().getStringExtra("availableSeats"));
+            intent.putExtra("seatPrice", getIntent().getStringExtra("seatPrice"));
+
+            startActivity(intent);
         });
 
-        // Set sample data for the first card (you can replace it with dynamic data)
-        txtBookingTrainName.setText("Kyq Gtnr Express");
-        txtBookingTrainNumber.setText("15077");
-        txtBookingTier.setText("3 Tier AC");
-        txtBookingSeatsRemaining.setText("Available 44");
-        txtBookingQuota.setText("General Quota");
-        txtBookingStartTimeDate.setText("8:00 PM, 30 Apr");
-        txtBookingDestinationTimeDate.setText("9:13 PM, 1 May");
-        txtBookingTravelDuration.setText("25h 13m");
-        txtBookingStartStation.setText("Kamakhya (KYQ)");
-        txtBookingDestinationStation.setText("Basti (BST)");
+        // Check Intent
+        if (getIntent() == null) {
+            Toast.makeText(null, "NO INTENT", Toast.LENGTH_SHORT).show();
+        }
+
+        txtBookingTrainName.setText(getIntent().getStringExtra("trainName"));
+        txtBookingTrainNumber.setText(getIntent().getStringExtra("trainNumber"));
+        txtBookingTier.setText(getIntent().getStringExtra("bookingTier"));
+        txtBookingSeatsRemaining.setText(getIntent().getStringExtra("availableSeats"));
+        txtBookingQuota.setText(getIntent().getStringExtra("bookingQuota"));
+        txtBookingStartTimeDate.setText(getIntent().getStringExtra("startTimeDate"));
+        txtBookingDestinationTimeDate.setText(getIntent().getStringExtra("endTimeDate"));
+        txtBookingTravelDuration.setText(getIntent().getStringExtra("timeDuration"));
+        txtBookingStartStation.setText(getIntent().getStringExtra("boardingStation"));
+        txtBookingDestinationStation.setText(getIntent().getStringExtra("destinationStation"));
     }
 
     // Handle the result from the child activity

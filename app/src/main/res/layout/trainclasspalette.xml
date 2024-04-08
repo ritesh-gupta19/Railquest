@@ -13,6 +13,7 @@
     app:cardElevation="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintTrainClassPalette"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="10dp"
@@ -59,9 +60,9 @@
             android:layout_marginTop="10dp"
             android:text="Updated few mins ago"
             android:textColor="#9D8DAA"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/txtSeatsAvailale"
-            app:layout_constraintTop_toBottomOf="@+id/txtSeatsAvailale"
-            android:textSize="12sp" />
+            app:layout_constraintTop_toBottomOf="@+id/txtSeatsAvailale" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

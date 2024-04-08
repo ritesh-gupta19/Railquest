@@ -1,11 +1,15 @@
 package com.example.railquest;
 
 import android.content.Context;
+import android.content.Intent;
+import android.hardware.camera2.CameraExtensionSession;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -68,12 +72,37 @@ public class TrainPaletteCustomAdapter extends RecyclerView.Adapter<TrainPalette
 
             // Add trainclasspalette.xml layout to the LinearLayout
             llTrainClasses.addView(trainClassView);
+            trainClassView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, Booking_Page_User_Details_Trip.class);
+
+                    // variables to send as extras
+                    intent.putExtra("trainName", holder.txtTrainName.getText().toString());
+                    intent.putExtra("trainNumber", holder.txtTrainNumber.getText().toString());
+                    intent.putExtra("startTimeDate", holder.txtStartTimeDate.getText().toString());
+                    intent.putExtra("endTimeDate", holder.txtEndTimeDate.getText().toString());
+                    intent.putExtra("timeDuration", holder.txtTimeDuration.getText().toString());
+                    intent.putExtra("boardingStation", holder.txtBoardingStationName.getText().toString());
+                    intent.putExtra("destinationStation", holder.txtDestinationStationName.getText().toString());
+                    intent.putExtra("bookingTier", txtSeatClass.getText().toString());
+                    intent.putExtra("bookingQuota", txtUpdatedTiming.getText().toString());
+                    intent.putExtra("availableSeats", txtSeatsAvailable.getText().toString());
+                    intent.putExtra("seatPrice", txtSeatPrice.getText().toString());
+
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 
     @Override
     public int getItemCount() {
         return trainDetailsItems.size();
+    }
+
+    public List<TrainDetails> getTrainDetailsItems() {
+        return trainDetailsItems;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

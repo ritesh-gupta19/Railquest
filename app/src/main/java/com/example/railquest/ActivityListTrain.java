@@ -1,24 +1,34 @@
 package com.example.railquest;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewParent;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ActivityListTrain extends AppCompatActivity {
 
     private RecyclerView trainDetailsListRecView;
     private ArrayList<TrainDetails> trainDetailsArray;
+    ArrayList<TrainDetails> trainDet;
+    TrainDetails clickedTrainDetails;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_train);
 
         trainDetailsListRecView = findViewById(R.id.recyclerViewTrainList);
-        ArrayList<TrainDetails> trainDet = new ArrayList<>();
+        trainDet = new ArrayList<>();
         trainDetailsArray = (ArrayList<TrainDetails>) getIntent().getSerializableExtra("trainDetailsArray");
 
         TrainClassPaletteItem[] trainClassPaletteItems = new TrainClassPaletteItem[4];
@@ -38,7 +48,8 @@ public class ActivityListTrain extends AppCompatActivity {
         trainDet.add(new TrainDetails("BENGALURU - MYSURU Shatabdi Express", "12007", "06:00 AM May 1", "09:15 AM May 1", "3hr 15min", "SBC", "MYS",trainClassPaletteItems));
         trainDet.add(new TrainDetails("CHENNAI - TRIVANDRUM Superfast Express", "12623", "08:00 AM May 1", "07:30 PM May 1", "11hr 30min", "MAS", "TVC",trainClassPaletteItems));
 
-        TrainPaletteCustomAdapter adapter = new TrainPaletteCustomAdapter(this, trainDetailsArray);
+        TrainPaletteCustomAdapter adapter = new TrainPaletteCustomAdapter(this, trainDet);
+
         trainDetailsListRecView.setAdapter(adapter);
         trainDetailsListRecView.setLayoutManager(new LinearLayoutManager(this));
 
