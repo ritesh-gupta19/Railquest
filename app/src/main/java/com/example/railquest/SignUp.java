@@ -61,6 +61,8 @@ public class SignUp extends AppCompatActivity {
         });
 
         setFieldListeners();
+
+        button.setOnClickListener(view -> DBHandler.addUser(SignUp.this));
     }
 
     public void showDatePickerDialog() {
@@ -371,5 +373,9 @@ public class SignUp extends AppCompatActivity {
             // Show error message or Toast indicating validation errors
             Toast.makeText(this, "Please fill all compulsory fields correctly", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void closeActivity() {
+        finish();
     }
 }
