@@ -140,7 +140,6 @@ public class DBHandler {
         ticket.setBoardingStationName(getDataFromTextView(context, R.id.txtBookingStartStation));
         ticket.setDestinationStationName(getDataFromTextView(context, R.id.txtBookingDestinationStation));
         ticket.setBookingTier(getDataFromTextView(context, R.id.txtBookingTier));
-        ticket.setBookingQuota(getDataFromTextView(context, R.id.txtBookingQuota));
         ticket.setSeatPrice(getDataFromTextView(context, R.id.txtBookingPrice));
         ticket.setTravellerName_age_gender(((PaymentActivity) context).getTravellerName_age_gender());
         ticket.setTravellerBerth(((PaymentActivity) context).getTravellerBerth());
