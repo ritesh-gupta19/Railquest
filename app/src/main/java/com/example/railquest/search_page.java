@@ -230,33 +230,38 @@ public class search_page extends AppCompatActivity {
             @Override
             public void onSuccess(JSONObject response) {
                 try {
-                    JSONObject trainClassArray = response.getJSONObject("data");
-                    Iterator<String> trainClassArrayIterator = trainClassArray.keys();
+                    JSONArray trainDetailsArray = response.getJSONArray("data");
 
-                    int trailClassCount = 0;
-                    while (trainClassArrayIterator.hasNext()) {
-                        String i = trainClassArrayIterator.next();
-                        trailClassCount += trainClassArray.getJSONArray(i).length();
+                    for (int i=0; i< trainDetailsArray.length(); i++) {
+                        JSONObject trainDetail = trainDetailsArray.getJSONObject(i);
                     }
-                    if (trailClassCount == 0) {
-                        onFailure(new Exception("Trail class count is 0"));
-                        return; // Exit the onSuccess method
-                    }
-                    TrainClassPaletteItem[] trainClassPaletteItems = new TrainClassPaletteItem[trailClassCount];
-
-                    trainClassArrayIterator = trainClassArray.keys();
-                    while (trainClassArrayIterator.hasNext()) {
-                        String i = trainClassArrayIterator.next();
-                        JSONArray temp = trainClassArray.getJSONArray(i);
-                        for (int j=0; j< temp.length(); j++) {
-                            JSONObject temp2 = temp.getJSONObject(j);
-                            String seatClass = temp2.getString("classType");
-                            String seatPrice = temp2.getString("fare");
-                            String seatsAvailable = "69";
-                            String updatedTimings = "Updated just now";
-                            trainClassPaletteItems[j] = new TrainClassPaletteItem(seatClass, seatPrice, seatsAvailable, updatedTimings);
-                        }
-                    }
+//                    JSONObject trainClassArray = response.getJSONObject("data");
+//                    Iterator<String> trainClassArrayIterator = trainClassArray.keys();
+//
+//                    int trailClassCount = 0;
+//                    while (trainClassArrayIterator.hasNext()) {
+//                        String i = trainClassArrayIterator.next();
+//                        trailClassCount += trainClassArray.getJSONArray(i).length();
+//                    }
+//                    if (trailClassCount == 0) {
+//                        onFailure(new Exception("Trail class count is 0"));
+//                        return; // Exit the onSuccess method
+//                    }
+//                    TrainClassPaletteItem[] trainClassPaletteItems = new TrainClassPaletteItem[trailClassCount];
+//
+//                    trainClassArrayIterator = trainClassArray.keys();
+//                    while (trainClassArrayIterator.hasNext()) {
+//                        String i = trainClassArrayIterator.next();
+//                        JSONArray temp = trainClassArray.getJSONArray(i);
+//                        for (int j=0; j< temp.length(); j++) {
+//                            JSONObject temp2 = temp.getJSONObject(j);
+//                            String seatClass = temp2.getString("classType");
+//                            String seatPrice = temp2.getString("fare");
+//                            String seatsAvailable = "69";
+//                            String updatedTimings = "Updated just now";
+//                            trainClassPaletteItems[j] = new TrainClassPaletteItem(seatClass, seatPrice, seatsAvailable, updatedTimings);
+//                        }
+//                    }
 
                     trainDetailsArray.add(new TrainDetails(trainDetailJSON, trainClassPaletteItems));
                 } catch (JSONException e) {
