@@ -49,7 +49,7 @@ public class search_page extends AppCompatActivity {
         okHttpClient = new OkHttpClient();
 
         imageViewCalendar.setOnClickListener(v -> showDatePickerDialog());
-        searchTrains.setOnClickListener(view -> StartNextActivity());
+        searchTrains.setOnClickListener(view -> SearchTrainsBetweenStationOnDate());
     }
 
     private void showDatePickerDialog() {
@@ -115,12 +115,12 @@ public class search_page extends AppCompatActivity {
         // skipping due to time constraints
 
         // get data
-//        String fromStationCode = editTextSourceStation.getText().toString();
-//        String toStationCode = editTextDestinationStation.getText().toString();
-//        String dateOfJourney = editTextDate.getText().toString();
-        String fromStationCode = "BVI";
-        String toStationCode = "NDLS";
-        String dateOfJourney = "2024-04-22";
+        String fromStationCode = editTextSourceStation.getText().toString();
+        String toStationCode = editTextDestinationStation.getText().toString();
+        String dateOfJourney = editTextDate.getText().toString();
+//        String fromStationCode = "BVI";
+//        String toStationCode = "NDLS";
+//        String dateOfJourney = "2024-04-22";
 
         String urlWithArgs = "https://irctc1.p.rapidapi.com/api/v3/trainBetweenStations" +
                 "?fromStationCode=" + fromStationCode +
@@ -131,7 +131,7 @@ public class search_page extends AppCompatActivity {
         Request request = new Request.Builder()
                 .url("https://irctc1.p.rapidapi.com/api/v3/trainBetweenStations?fromStationCode=BVI&toStationCode=NDLS&dateOfJourney=2024-04-22")
                 .get()
-                .addHeader("X-RapidAPI-Key", "ec8fcd17ebmshffdea8d2f2b56a0p147898jsn64a4bb596d83")
+                .addHeader("X-RapidAPI-Key", "2dabc9ccaamsh3c70e97f5a05df2p12e76djsn88144a92d611")
                 .addHeader("X-RapidAPI-Host", "irctc1.p.rapidapi.com")
                 .build();
 
@@ -209,56 +209,80 @@ public class search_page extends AppCompatActivity {
     }
 
     private void getFareInformation(JSONObject trainDetailJSON) throws JSONException {
-        String trainNumber = trainDetailJSON.getString("train_number");
-        String fromStation = trainDetailJSON.getString("train_src");
-        String toStation = trainDetailJSON.getString("train_dstn");
+        // verify data
+        // skipping due to time constraints
 
-        String urlWithArgs2 = "https://irctc1.p.rapidapi.com/api/v2/getFare" +
-                "?trainNo=" + trainNumber +
-                "&fromStationCode=" + fromStation +
-                "&toStationCode=" + toStation;
+        // get data
+//        String fromStationCode = editTextSourceStation.getText().toString();
+//        String toStationCode = editTextDestinationStation.getText().toString();
+//        String dateOfJourney = editTextDate.getText().toString();
+        String fromStationCode = "BVI";
+        String toStationCode = "NDLS";
+        String dateOfJourney = "2024-04-22";
 
-        Request request2 = new Request.Builder()
-                .url(urlWithArgs2)
+        String urlWithArgs = "https://irctc1.p.rapidapi.com/api/v3/trainBetweenStations" +
+                "?fromStationCode=" + fromStationCode +
+                "&toStationCode=" + toStationCode +
+                "&dateOfJourney=" + dateOfJourney;
+
+        // call api request object
+        Request request = new Request.Builder()
+                .url("https://irctc1.p.rapidapi.com/api/v3/trainBetweenStations?fromStationCode=BVI&toStationCode=NDLS&dateOfJourney=2024-04-22")
                 .get()
-                .addHeader("X-RapidAPI-Key", "ec8fcd17ebmshffdea8d2f2b56a0p147898jsn64a4bb596d83")
+                .addHeader("X-RapidAPI-Key", "2dabc9ccaamsh3c70e97f5a05df2p12e76djsn88144a92d611")
                 .addHeader("X-RapidAPI-Host", "irctc1.p.rapidapi.com")
                 .build();
 
+
         // Make the fare information API request
-        makeApiRequest(request2, new ApiResponseListener() {
+        makeApiRequest(request, new ApiResponseListener() {
             @Override
             public void onSuccess(JSONObject response) {
                 try {
-                    JSONObject trainClassArray = response.getJSONObject("data");
-                    Iterator<String> trainClassArrayIterator = trainClassArray.keys();
+                    JSONArray tempTrainDetailsArray = response.getJSONArray("data");
 
-                    int trailClassCount = 0;
-                    while (trainClassArrayIterator.hasNext()) {
-                        String i = trainClassArrayIterator.next();
-                        trailClassCount += trainClassArray.getJSONArray(i).length();
-                    }
-                    if (trailClassCount == 0) {
-                        onFailure(new Exception("Trail class count is 0"));
-                        return; // Exit the onSuccess method
-                    }
-                    TrainClassPaletteItem[] trainClassPaletteItems = new TrainClassPaletteItem[trailClassCount];
+                    TrainClassPaletteItem[] trainClassPaletteItems = new TrainClassPaletteItem[4];
+                    trainClassPaletteItems[0]= new TrainClassPaletteItem("3A", "Rs 3529", "72", "Updated just now.");
+                    trainClassPaletteItems[1]= new TrainClassPaletteItem("2A", "Rs 2982", "72", "Updated just now");
+                    trainClassPaletteItems[2]= new TrainClassPaletteItem("1A", "Rs 2025", "72", "Updated just now");
+                    trainClassPaletteItems[3]= new TrainClassPaletteItem("SL", "Rs 649", "72", "Updated just now");
 
-                    trainClassArrayIterator = trainClassArray.keys();
-                    while (trainClassArrayIterator.hasNext()) {
-                        String i = trainClassArrayIterator.next();
-                        JSONArray temp = trainClassArray.getJSONArray(i);
-                        for (int j=0; j< temp.length(); j++) {
-                            JSONObject temp2 = temp.getJSONObject(j);
-                            String seatClass = temp2.getString("classType");
-                            String seatPrice = temp2.getString("fare");
-                            String seatsAvailable = "69";
-                            String updatedTimings = "Updated just now";
-                            trainClassPaletteItems[j] = new TrainClassPaletteItem(seatClass, seatPrice, seatsAvailable, updatedTimings);
-                        }
-                    }
 
-                    trainDetailsArray.add(new TrainDetails(trainDetailJSON, trainClassPaletteItems));
+                    for (int i=0; i< tempTrainDetailsArray.length(); i++) {
+                        JSONObject trainDetail = tempTrainDetailsArray.getJSONObject(i);
+                        trainDetailsArray.add(new TrainDetails(trainDetail, trainClassPaletteItems));
+
+                    }
+//                    JSONObject trainClassArray = response.getJSONObject("data");
+//                    Iterator<String> trainClassArrayIterator = trainClassArray.keys();
+//
+//                    int trailClassCount = 0;
+//                    while (trainClassArrayIterator.hasNext()) {
+//                        String i = trainClassArrayIterator.next();
+//                        trailClassCount += trainClassArray.getJSONArray(i).length();
+//                    }
+//                    if (trailClassCount == 0) {
+//                        onFailure(new Exception("Trail class count is 0"));
+//                        return; // Exit the onSuccess method
+//                    }
+//                    TrainClassPaletteItem[] trainClassPaletteItems = new TrainClassPaletteItem[trailClassCount];
+//
+//                    trainClassArrayIterator = trainClassArray.keys();
+//                    while (trainClassArrayIterator.hasNext()) {
+//                        String i = trainClassArrayIterator.next();
+//                        JSONArray temp = trainClassArray.getJSONArray(i);
+//                        for (int j=0; j< temp.length(); j++) {
+//                            JSONObject temp2 = temp.getJSONObject(j);
+//                            String seatClass = temp2.getString("classType");
+//                            String seatPrice = temp2.getString("fare");
+//                            String seatsAvailable = "69";
+//                            String updatedTimings = "Updated just now";
+//                            trainClassPaletteItems[j] = new TrainClassPaletteItem(seatClass, seatPrice, seatsAvailable, updatedTimings);
+//                        }
+//                    }
+//
+//                    trainDetailsArray.add(new TrainDetails(trainDetailJSON, trainClassPaletteItems));
+                    StartNextActivity();
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
