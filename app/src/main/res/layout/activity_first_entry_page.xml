@@ -92,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="-6dp"
         app:cardCornerRadius="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/retrievePNRCard"
+        app:layout_constraintBottom_toTopOf="@+id/footerTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,28 +110,6 @@
     </androidx.cardview.widget.CardView>
 
     <!-- Retrieve PNR Card -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/retrievePNRCard"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-6dp"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/footerTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getBookedTicketsCard">
-
-        <Button
-            android:id="@+id/retrievePNRButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickPNRStatus"
-            android:padding="16dp"
-            android:text="PNR Status"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
-    </androidx.cardview.widget.CardView>
 
     <!-- Cancel Tickets Card -->
 
@@ -146,8 +124,6 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/retrievePNRCard"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
