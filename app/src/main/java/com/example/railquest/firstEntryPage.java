@@ -12,7 +12,6 @@ public class firstEntryPage extends AppCompatActivity {
     private Button book_tickets;
     private Button train_details;
     private Button view_bookings;
-    private Button PNR_status;
 
 
     @Override
@@ -23,7 +22,6 @@ public class firstEntryPage extends AppCompatActivity {
         book_tickets = findViewById(R.id.bookTicketsButton);
         train_details = findViewById(R.id.getTrainDetailsButton);
         view_bookings = findViewById(R.id.getBookedTicketsButton);
-        PNR_status = findViewById(R.id.retrievePNRButton);
     }
 
     public void onClickBookTickets(View v) {
@@ -44,11 +42,5 @@ public class firstEntryPage extends AppCompatActivity {
         startActivity(intent);
 
         //functionality for your bookings button....
-    }
-
-    public void onClickPNRStatus(View v) {
-        //functionality for check PNR status button....
-        Intent intent = new Intent(this, PNR_status.class); // Replace NextActivity with the name of your next activity
-        startActivity(intent);
     }
 }

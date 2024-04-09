@@ -48,7 +48,7 @@ public class ActivityListTrain extends AppCompatActivity {
         trainDet.add(new TrainDetails("BENGALURU - MYSURU Shatabdi Express", "12007", "06:00 AM May 1", "09:15 AM May 1", "3hr 15min", "SBC", "MYS",trainClassPaletteItems));
         trainDet.add(new TrainDetails("CHENNAI - TRIVANDRUM Superfast Express", "12623", "08:00 AM May 1", "07:30 PM May 1", "11hr 30min", "MAS", "TVC",trainClassPaletteItems));
 
-        TrainPaletteCustomAdapter adapter = new TrainPaletteCustomAdapter(this, trainDetailsArray);
+        TrainPaletteCustomAdapter adapter = new TrainPaletteCustomAdapter(this, trainDet);
 
         trainDetailsListRecView.setAdapter(adapter);
         trainDetailsListRecView.setLayoutManager(new LinearLayoutManager(this));
